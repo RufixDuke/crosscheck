@@ -15,12 +15,12 @@ describe("resolveHistoryDbPath", () => {
 
   it("resolves the default configured path against repoRoot", () => {
     const resolved = resolveHistoryDbPath({ repoRoot: "/repo" });
-    expect(resolved).toBe(path.join("/repo", ".git", "crosscheck", "history.db"));
+    expect(resolved).toBe(path.resolve("/repo", ".git", "crosscheck", "history.db"));
   });
 
   it("resolves a custom configuredPath against repoRoot", () => {
     const resolved = resolveHistoryDbPath({ repoRoot: "/repo", configuredPath: "custom/history.db" });
-    expect(resolved).toBe(path.join("/repo", "custom", "history.db"));
+    expect(resolved).toBe(path.resolve("/repo", "custom", "history.db"));
   });
 
   it("falls back to ~/.crosscheck/history.db with no repoRoot", () => {

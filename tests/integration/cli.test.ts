@@ -77,7 +77,7 @@ beforeAll(async () => {
   try {
     await access(DIST_CLI);
   } catch {
-    await execFileAsync("npx", ["tsup"], { cwd: REPO_ROOT });
+    await execFileAsync("npx", ["tsup"], { cwd: REPO_ROOT, shell: true });
   }
 }, 120_000);
 
