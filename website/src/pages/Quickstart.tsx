@@ -17,7 +17,7 @@ export function Quickstart() {
       <p>
         Requires Node.js ≥ 18.18. CrossCheck is a single global binary — no daemon, no background service.
       </p>
-      <CodeBlock>npm i -g crosscheck</CodeBlock>
+      <CodeBlock>npm i -g @rufixduke/crosscheck</CodeBlock>
 
       <h2>2. Stage a change and run it</h2>
       <p>

@@ -30,7 +30,7 @@ export function Home() {
               Star on GitHub
             </a>
           </div>
-          <CodeBlock>npm i -g crosscheck</CodeBlock>
+          <CodeBlock>npm i -g @rufixduke/crosscheck</CodeBlock>
         </div>
         <div className="hero-term">
           <TypingTerminal name="hero-demo" command="git add -A && crosscheck" maxLines={20} />
