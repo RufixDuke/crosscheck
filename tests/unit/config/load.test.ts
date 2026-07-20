@@ -198,7 +198,7 @@ describe("loadConfig — errors (§12.1)", () => {
     await writeFile(filePath, "{ not json ", "utf8");
     const err = await loadConfig({ cwd: root, env: {}, homeDir: home }).catch((e: unknown) => e);
     expect(err).toBeInstanceOf(ConfigError);
-    expect((err as Error).message).toMatch(new RegExp(`^invalid config at ${filePath.replace(/[/.]/g, "\\$&")}: `));
+    expect((err as Error).message.startsWith(`invalid config at ${filePath}: `)).toBe(true);
   });
 
   it("surfaces unknown-key warnings without failing", async () => {
