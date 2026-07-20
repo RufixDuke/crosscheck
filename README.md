@@ -20,7 +20,7 @@ No account, no server, no telemetry. It works fully offline.
 Requires Node.js ≥ 18.18.
 
 ```sh
-npm i -g crosscheck
+npm i -g @rufixduke/crosscheck
 ```
 
 ## Quickstart
