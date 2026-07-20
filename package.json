@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/RufixDuke/crosscheck/issues"
   },
-  "homepage": "https://github.com/RufixDuke/crosscheck#readme",
+  "homepage": "https://crosscheck-iota.vercel.app/",
   "publishConfig": {
     "access": "public"
   },

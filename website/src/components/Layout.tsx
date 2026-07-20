@@ -2,7 +2,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { GitHubIcon } from "./icons";
 
 const GITHUB_URL = "https://github.com/RufixDuke/crosscheck";
-const NPM_URL = "https://www.npmjs.com/package/crosscheck";
+const NPM_URL = "https://www.npmjs.com/package/@rufixduke/crosscheck";
 
 export function Layout() {
   return (
