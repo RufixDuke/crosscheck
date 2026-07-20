@@ -7,7 +7,6 @@ const NAV = [
   { to: "/quickstart", label: "Quickstart" },
   { to: "/commands", label: "Commands" },
   { to: "/rules", label: "Rules" },
-  { to: "/config", label: "Config" },
   { to: "/privacy", label: "Privacy" },
   { to: "/faq", label: "FAQ" },
 ];

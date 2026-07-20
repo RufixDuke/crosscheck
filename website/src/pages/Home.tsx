@@ -9,14 +9,14 @@ export function Home() {
         <div className="grid-texture" aria-hidden="true" />
         <div className="hero-copy">
           <p className="eyebrow">
-            <span className="accent-dot">▲</span> local-first · pre-push · offline-first · BYOK
+            <span className="accent-dot">▲</span> local-first · pre-push · offline-first
           </p>
           <h1>
-            Review what your AI agent wrote — before you <span className="accent">push</span>.
+            Review what your AI agent wrote, before you <span className="accent">push</span>.
           </h1>
           <p className="lede">
             CrossCheck is a terminal CLI that runs on your staged diff before you push. It clusters what changed,
-            scores what's risky — auth, payments, migrations, secrets — and hands you a prioritized checklist and
+            scores what's risky (auth, payments, migrations, secrets), and hands you a prioritized checklist and
             concrete manual tests. No account, no server, no telemetry. It works fully offline.
           </p>
           <div className="button-row">
@@ -46,33 +46,29 @@ export function Home() {
             <h2>What you get, in one run</h2>
             <p className="small-print">
               Every cluster sorted by severity, a checklist tied to file:line evidence, and the manual tests that
-              actually matter — no wall of nitpick comments.
+              actually matter. No wall of nitpick comments.
             </p>
           </div>
           <div className="card-grid">
             <div className="card">
               <h3>▲ Risk map</h3>
-              <p>Every cluster of changed files, sorted by severity — 24 terminal rows or fewer, no matter the diff size.</p>
+              <p>Every cluster of changed files, sorted by severity, in 24 terminal rows or fewer, no matter the diff size.</p>
             </div>
             <div className="card">
               <h3>☐ Prioritized checklist</h3>
-              <p>Concrete, checkable items tied to file:line evidence — not a wall of inline nitpick comments.</p>
+              <p>Concrete, checkable items tied to file:line evidence, not a wall of inline nitpick comments.</p>
             </div>
             <div className="card">
               <h3>Suggested manual tests</h3>
-              <p>Runnable actions like "send a forged webhook — expect 4xx and zero side effects," tied to what changed.</p>
+              <p>Runnable actions like "send a forged webhook, expect 4xx and zero side effects," tied to what changed.</p>
             </div>
             <div className="card">
               <h3>Zero network calls, by default</h3>
               <p>The heuristic rule engine is the primary product. It works on a flaky connection with no API keys.</p>
             </div>
             <div className="card">
-              <h3>BYOK LLM summaries (optional)</h3>
-              <p>Bring your own Anthropic, OpenAI, or OpenRouter key for two-sentence cluster summaries — redacted before anything leaves your machine.</p>
-            </div>
-            <div className="card">
               <h3>Review history &amp; dedup</h3>
-              <p>Local SQLite remembers hunks you've already reviewed — content-hashed, so it survives rebases and amended commits.</p>
+              <p>Local SQLite remembers hunks you've already reviewed, content-hashed, so it survives rebases and amended commits.</p>
             </div>
           </div>
         </div>
@@ -88,7 +84,7 @@ export function Home() {
             </p>
           </div>
           <p>
-            There's no PR queue for a solo dev, no second pair of eyes, no branch protection — just a terminal, a
+            There's no PR queue for a solo dev, no second pair of eyes, no branch protection, just a terminal, a
             staged diff, and hope. CrossCheck runs before <code>git push</code> and replaces the hope with an ordered
             checklist.
           </p>
@@ -102,7 +98,7 @@ export function Home() {
             <p>
               CrossCheck is a structured self-review checklist with a risk radar. It is <strong>not</strong> a proof
               of correctness, not a security audit, and not a replacement for reading the diff. A fully green run is
-              evidence you looked, in an ordered way, at the riskiest parts — not evidence the code is correct. Rules
+              evidence you looked, in an ordered way, at the riskiest parts, not evidence the code is correct. Rules
               catch patterns, not logic. You are still the reviewer.
             </p>
           </div>
@@ -130,12 +126,12 @@ export function Home() {
                 <tr>
                   <td>Offline mode</td>
                   <td>No</td>
-                  <td>Yes — first-class heuristic mode</td>
+                  <td>Yes, always</td>
                 </tr>
                 <tr>
                   <td>Code leaves your machine</td>
                   <td>Yes, to the vendor</td>
-                  <td>Only with explicit consent, redacted, to your own provider</td>
+                  <td>No</td>
                 </tr>
                 <tr>
                   <td>Pricing</td>
@@ -151,7 +147,7 @@ export function Home() {
             </table>
           </div>
           <p className="small-print">
-            These are good products solving a different moment in the workflow — most teams reviewing each other's
+            These are good products solving a different moment in the workflow. Most teams reviewing each other's
             PRs are well served by them. CrossCheck is for the moment before that: the solo push nobody else will
             see.
           </p>

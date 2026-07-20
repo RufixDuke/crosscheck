@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { CATEGORIES, RULES, type RuleDoc } from "../data/rules";
 
 const CATEGORY_LABEL: Record<string, string> = {
@@ -66,7 +65,7 @@ export function Rules() {
         <p className="eyebrow">Reference</p>
         <h1>The rule catalog</h1>
         <p className="lede">
-          MVP ships {RULES.length} built-in rules across {CATEGORIES.length} categories — {onCount} on by default,{" "}
+          CrossCheck ships {RULES.length} built-in rules across {CATEGORIES.length} categories: {onCount} on by default,{" "}
           {optCount} opt-in. Every default-on rule is held to one bar: would a tired developer at midnight think{" "}
           <em>"yes, I needed to see this"</em>? Rules that can't clear that bar yet ship opt-in instead of noisy.
         </p>
@@ -74,11 +73,9 @@ export function Rules() {
 
       <div className="callout">
         <p>
-          Opt-in rules are enabled per-project via <code>rules.enable</code> in{" "}
-          <code>crosscheck.config.json</code> — see the <Link to="/config">configuration reference</Link>. Every
-          rule's severity can be overridden with <code>rules.severityOverrides</code>, and any rule can be turned off
-          with <code>rules.disable</code>. Run <code>crosscheck rules &lt;id&gt;</code> to see a rule's exact trigger
-          patterns for your installed version.
+          Opt-in rules can be turned on per project, and any rule's severity can be adjusted, in the{" "}
+          <code>crosscheck.config.json</code> written by <code>crosscheck init</code>. Run{" "}
+          <code>crosscheck rules &lt;id&gt;</code> to see a rule's exact trigger patterns for your installed version.
         </p>
       </div>
 
@@ -93,8 +90,8 @@ export function Rules() {
 
       <h2>Failure-archetype taxonomy</h2>
       <p>
-        Categories say <em>where</em> risk lives; archetypes say <em>how</em> AI-generated code tends to fail — a
-        cross-cutting tag used to audit coverage, not a second organization scheme.
+        Categories say <em>where</em> risk lives; archetypes say <em>how</em> AI-generated code tends to fail. It is
+        a cross-cutting tag used to audit coverage, not a second organization scheme.
       </p>
       <div className="table-wrap">
         <table>
@@ -132,11 +129,9 @@ export function Rules() {
 
       <h2>Known limitations</h2>
       <p>
-        Heuristics match patterns, not intent — false positives and false negatives both exist. TS/JS gets deeper,
-        AST-level analysis; other languages get glob+regex-tier rules. Custom rules (via{" "}
-        <code>rules.custom</code>) are glob+regex only in MVP — AST matchers are a built-in-rule privilege until the
-        matcher API stabilizes. A finding you dismiss as noise is a rule-tuning bug report, not user error — please
-        open one.
+        Heuristics match patterns, not intent, so both false positives and false negatives exist. TypeScript and
+        JavaScript get deeper, AST-level analysis; other languages get glob and regex-tier rules. A finding you
+        dismiss as noise is a rule-tuning bug report, not user error, so please open one.
       </p>
     </>
   );
