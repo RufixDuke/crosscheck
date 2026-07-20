@@ -639,13 +639,13 @@ RISK MAP — 1 high-risk cluster in 1 file
 REVIEW CHECKLIST — 9 items (4 high-risks first)
 ────────────────────────────────────────────────────────────────────
 ▲ db: drop_sessions migration
-  ☐ 1. Read the migration line by line — do not skim migrations, ever (migrations/0007_drop_sessions.sql:1)
-  ☐ 2. Confirm every DROP/TRUNCATE targets something truly disposable (not renamed-away production data) (migrations/0007_drop_sessions.sql:1)
-  ☐ 3. For NOT NULL columns without DEFAULT: confirm the backfill strategy and table-lock impact (migrations/0007_drop_sessions.sql:1)
-  ☐ 4. Write or verify the DOWN/rollback migration before pushing (migrations/0007_drop_sessions.sql:1)
-  ☐ 5. Run the migration against a production-shaped dump locally; confirm backfill + rollback path (migrations/0007_drop_sessions.sql:1)
-  ☐ 6. Confirm the migration is reversible — a DOWN path exists and actually runs (migrations/0007_drop_sessions.sql:1)
-  ☐ 7. Check lock impact: table rewrites and index builds on large tables need a plan (migrations/0007_drop_sessions.sql:1)
+  ☐ 1. Read the migration line by line — do not skim migrations, ever (migrations/0007_drop_sessions.sql:1) [db/destructive-migration]
+  ☐ 2. Confirm every DROP/TRUNCATE targets something truly disposable (not renamed-away production data) (migrations/0007_drop_sessions.sql:1) [db/destructive-migration]
+  ☐ 3. For NOT NULL columns without DEFAULT: confirm the backfill strategy and table-lock impact (migrations/0007_drop_sessions.sql:1) [db/destructive-migration]
+  ☐ 4. Write or verify the DOWN/rollback migration before pushing (migrations/0007_drop_sessions.sql:1) [db/destructive-migration]
+  ☐ 5. Run the migration against a production-shaped dump locally; confirm backfill + rollback path (migrations/0007_drop_sessions.sql:1) [db/migration-added]
+  ☐ 6. Confirm the migration is reversible — a DOWN path exists and actually runs (migrations/0007_drop_sessions.sql:1) [db/migration-added]
+  ☐ 7. Check lock impact: table rewrites and index builds on large tables need a plan (migrations/0007_drop_sessions.sql:1) [db/migration-added]
   … 2 more items (use --verbose to expand)
 
 SUGGESTED MANUAL TESTS
@@ -997,13 +997,13 @@ RISK MAP — 1 high-risk cluster in 1 file
 REVIEW CHECKLIST — 9 items (8 high-risks first)
 ────────────────────────────────────────────────────────────────────
 ▲ integrations/paystack
-  ☐ 1. Re-read every money-moving path that changed; confirm amounts flow server-side (src/integrations/paystack.ts:2)
-  ☐ 2. Confirm no amount, currency, or price is trusted from the client payload (src/integrations/paystack.ts:2)
-  ☐ 3. Confirm idempotency keys survive the change — a retried charge must not double-charge (src/integrations/paystack.ts:2)
-  ☐ 4. Confirm provider errors are mapped deliberately (no silent swallow, no raw leak to the client) (src/integrations/paystack.ts:2)
-  ☐ 5. Confirm the flagged value is not a real credential (test fixtures and public keys are OK) (src/integrations/paystack.ts:2)
-  ☐ 6. If real: revoke/rotate it NOW — assume anything committed is compromised (src/integrations/paystack.ts:2)
-  ☐ 7. Move the value to an environment variable and add it to .env.example with a placeholder (src/integrations/paystack.ts:2)
+  ☐ 1. Re-read every money-moving path that changed; confirm amounts flow server-side (src/integrations/paystack.ts:2) [payments/provider-code]
+  ☐ 2. Confirm no amount, currency, or price is trusted from the client payload (src/integrations/paystack.ts:2) [payments/provider-code]
+  ☐ 3. Confirm idempotency keys survive the change — a retried charge must not double-charge (src/integrations/paystack.ts:2) [payments/provider-code]
+  ☐ 4. Confirm provider errors are mapped deliberately (no silent swallow, no raw leak to the client) (src/integrations/paystack.ts:2) [payments/provider-code]
+  ☐ 5. Confirm the flagged value is not a real credential (test fixtures and public keys are OK) (src/integrations/paystack.ts:2) [secrets/hardcoded-secret]
+  ☐ 6. If real: revoke/rotate it NOW — assume anything committed is compromised (src/integrations/paystack.ts:2) [secrets/hardcoded-secret]
+  ☐ 7. Move the value to an environment variable and add it to .env.example with a placeholder (src/integrations/paystack.ts:2) [secrets/hardcoded-secret]
   … 2 more items (use --verbose to expand)
 
 SUGGESTED MANUAL TESTS
@@ -1297,10 +1297,10 @@ RISK MAP — 1 high-risk cluster in 1 file
 REVIEW CHECKLIST — 5 items (4 high-risks first)
 ────────────────────────────────────────────────────────────────────
 ▲ routes/webhooks
-  ☐ 1. Verify the provider signature/HMAC is checked BEFORE any business logic runs (src/routes/webhooks.ts:3)
-  ☐ 2. Confirm verification uses the raw request body (not the re-serialized JSON) (src/routes/webhooks.ts:3)
-  ☐ 3. Confirm the handler is idempotent: replay the same event twice, expect one fulfillment (src/routes/webhooks.ts:3)
-  ☐ 4. Confirm amounts/references are re-fetched or recomputed server-side, never trusted from the payload (src/routes/webhooks.ts:3)
+  ☐ 1. Verify the provider signature/HMAC is checked BEFORE any business logic runs (src/routes/webhooks.ts:3) [payments/webhook-endpoint]
+  ☐ 2. Confirm verification uses the raw request body (not the re-serialized JSON) (src/routes/webhooks.ts:3) [payments/webhook-endpoint]
+  ☐ 3. Confirm the handler is idempotent: replay the same event twice, expect one fulfillment (src/routes/webhooks.ts:3) [payments/webhook-endpoint]
+  ☐ 4. Confirm amounts/references are re-fetched or recomputed server-side, never trusted from the payload (src/routes/webhooks.ts:3) [payments/webhook-endpoint]
 ■ general
   ☐ 5. Read the full diff of every ▲ cluster top to bottom — rules catch patterns, not logic (general)
 

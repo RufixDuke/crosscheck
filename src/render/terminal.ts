@@ -127,7 +127,7 @@ function renderChecklist(lines: string[], report: ReviewReport, colors: PicoColo
       const sev = clusterSeverity(report.clusters, item.clusterId);
       lines.push(colors.bold(`${SEVERITY_SYMBOL[sev]} ${item.clusterLabel}`));
     }
-    lines.push(`  ${renderChecklistLine(item, index + 1, report.createdAt, colors, verbose)}`);
+    lines.push(`  ${renderChecklistLine(item, index + 1, report.createdAt, colors)}`);
   });
 
   const hidden = checklist.length - visible.length;
@@ -136,13 +136,7 @@ function renderChecklist(lines: string[], report: ReviewReport, colors: PicoColo
   }
 }
 
-function renderChecklistLine(
-  item: ChecklistItem,
-  index: number,
-  createdAt: string,
-  colors: PicoColors,
-  verbose: boolean,
-): string {
+function renderChecklistLine(item: ChecklistItem, index: number, createdAt: string, colors: PicoColors): string {
   if (item.acknowledged) {
     const since = item.ackedAt !== undefined ? ` (reviewed ${relativeTime(item.ackedAt, createdAt)})` : "";
     return colors.dim(`✓ ${index}. ${item.text}${since}`);
@@ -153,7 +147,7 @@ function renderChecklistLine(
     parts.push(`(${item.file}${item.line !== undefined ? `:${item.line}` : ""})`);
   }
   if (item.ruleId !== undefined) {
-    if (verbose) parts.push(`[${item.ruleId}]`);
+    parts.push(`[${item.ruleId}]`);
   } else {
     parts.push("(general)");
   }

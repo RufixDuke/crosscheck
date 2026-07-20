@@ -854,7 +854,7 @@ Each feature is specified with a user story, behavior, and acceptance criteria. 
 - **Behavior:** Findings become checklist items grouped under their cluster, each with a ☐ checkbox glyph, severity symbol, and `file:line` evidence pointer. Items dedupe by text and collapse findings already acknowledged in history (visible with `--all`). Generic hygiene items append at the end (e.g., "Read the full diff of every ▲ cluster top to bottom — rules catch patterns, not logic"). The footer always carries the honesty line.
 - **Acceptance criteria:**
   1. Checklist items are ordered: ▲ before ● before ■, then by cluster, then file:line.
-  2. Each item traces to a rule id (shown in `--verbose`) or is marked `(general)`.
+  2. Each item traces to a rule id (always shown as `[rule-id]`) or is marked `(general)`.
   3. Previously-acknowledged findings render as `✓ ... (reviewed 2 days ago)` and do not count toward strict-mode failure.
 
 ---

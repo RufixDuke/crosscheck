@@ -130,7 +130,7 @@ describe("renderTerminal — REVIEW CHECKLIST (F4)", () => {
     expect(out).toContain("(general)");
   });
 
-  it("hides the rule id suffix unless --verbose is set, but always shows it when verbose (F4 AC2)", () => {
+  it("always shows the rule id suffix, verbose or not (F4 AC2)", () => {
     const r = report({
       checklist: [
         {
@@ -147,7 +147,7 @@ describe("renderTerminal — REVIEW CHECKLIST (F4)", () => {
     });
     const quiet = renderTerminal(r, { color: false });
     const verbose = renderTerminal(r, { color: false, verbose: true });
-    expect(quiet).not.toContain("[some/rule]");
+    expect(quiet).toContain("[some/rule]");
     expect(verbose).toContain("[some/rule]");
   });
 
