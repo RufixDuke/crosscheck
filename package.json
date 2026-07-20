@@ -9,6 +9,15 @@
   "engines": {
     "node": ">=18.18"
   },
+  "author": "RufixDuke",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RufixDuke/crosscheck.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RufixDuke/crosscheck/issues"
+  },
+  "homepage": "https://github.com/RufixDuke/crosscheck#readme",
   "files": [
     "dist",
     "schema"
