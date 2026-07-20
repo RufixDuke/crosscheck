@@ -11,8 +11,8 @@ export function GitHubIcon() {
 export function CopyIcon() {
   return (
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
-      <rect x="5.5" y="5.5" width="9" height="9" rx="1.5" />
-      <path d="M3 10.5H2.5A1.5 1.5 0 0 1 1 9V2.5A1.5 1.5 0 0 1 2.5 1H9a1.5 1.5 0 0 1 1.5 1.5V3" />
+      <rect x="3.5" y="3" width="9" height="11.5" rx="1.5" />
+      <rect x="6" y="1.2" width="4" height="2.4" rx="0.8" fill="currentColor" stroke="none" />
     </svg>
   );
 }

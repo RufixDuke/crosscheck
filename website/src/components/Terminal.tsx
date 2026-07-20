@@ -79,11 +79,24 @@ export function Terminal({ name, label = "terminal" }: { name: string; label?: s
  * prints the real hero-demo output instantly. One-shot, skippable (click
  * anywhere on it), respects prefers-reduced-motion (renders final state).
  */
-export function TypingTerminal({ name, command, label = "terminal" }: { name: string; command: string; label?: string }) {
+export function TypingTerminal({
+  name,
+  command,
+  label = "terminal",
+  maxLines,
+}: {
+  name: string;
+  command: string;
+  label?: string;
+  /** Show only the first N real lines of output (still verbatim, just truncated) — for compact previews like the hero. */
+  maxLines?: number;
+}) {
   const example = EXAMPLES[name];
   if (example === undefined) {
     throw new Error(`unknown example "${name}" — no recipe in website/scripts/examples.mjs`);
   }
+
+  const output = maxLines !== undefined ? example.output.split("\n").slice(0, maxLines).join("\n") : example.output;
 
   const reducedMotion = useRef(
     typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches,
@@ -138,7 +151,7 @@ export function TypingTerminal({ name, command, label = "terminal" }: { name: st
         {phase === "done" && (
           <>
             {"\n"}
-            {colorize(example.output)}
+            {colorize(output)}
           </>
         )}
       </pre>

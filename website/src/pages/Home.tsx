@@ -23,14 +23,20 @@ export function Home() {
             <Link className="btn btn-primary" to="/quickstart">
               Quickstart →
             </Link>
-            <a className="btn btn-secondary" href="https://github.com/RufixDuke/crosscheck">
-              View on GitHub
+            <a className="btn btn-secondary btn-star" href="https://github.com/RufixDuke/crosscheck">
+              <span className="star-glyph" aria-hidden="true">
+                ★
+              </span>
+              Star on GitHub
             </a>
           </div>
           <CodeBlock>npm i -g crosscheck</CodeBlock>
         </div>
         <div className="hero-term">
-          <TypingTerminal name="hero-demo" command="git add -A && crosscheck" />
+          <TypingTerminal name="hero-demo" command="git add -A && crosscheck" maxLines={20} />
+          <p className="hero-term-caption">
+            Full checklist &amp; manual tests → <Link to="/quickstart">Quickstart</Link>
+          </p>
         </div>
       </section>
 

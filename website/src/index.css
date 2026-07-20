@@ -33,6 +33,7 @@
   --sidebar-w: 260px;
   --toc-w: 220px;
   --gutter: clamp(1.5rem, 4vw, 4rem);
+  --page-max: 1600px;
 
   color-scheme: dark;
 }
@@ -162,6 +163,8 @@ p a:hover::after {
 }
 
 .topbar-inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
   padding: 0.85rem var(--gutter);
   display: flex;
   align-items: center;
@@ -316,6 +319,33 @@ p a:hover::after {
   transform: translateY(0);
 }
 
+.star-glyph {
+  display: inline-block;
+  color: var(--muted);
+  font-size: 0.9em;
+  transition: color 0.3s var(--ease), transform 0.4s var(--ease);
+}
+
+.btn-star::before {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 18%, var(--surface)),
+    color-mix(in srgb, var(--accent) 6%, var(--surface))
+  );
+}
+
+.btn-star:hover {
+  border-color: var(--accent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent),
+    0 10px 26px -10px color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+.btn-star:hover .star-glyph {
+  color: var(--accent);
+  transform: rotate(-12deg);
+}
+
 /* ---------------------------------------------------------------------
    Typography
    ------------------------------------------------------------------- */
@@ -433,6 +463,8 @@ em {
   grid-template-columns: var(--sidebar-w) minmax(0, 1fr) var(--toc-w);
   flex: 1;
   width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
   align-items: start;
 }
 
@@ -771,7 +803,7 @@ pre.code-block {
   background: var(--terminal-surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-block);
-  padding: 1.1rem 1.2rem;
+  padding: 1.1rem 5.5rem 1.1rem 1.2rem;
   overflow-x: auto;
   font-family: var(--font-mono);
   font-size: 0.875rem;
@@ -781,6 +813,8 @@ pre.code-block {
 
 .code-wrap {
   position: relative;
+  display: inline-block;
+  max-width: 100%;
   margin: 1.25rem 0 1.75rem;
 }
 
@@ -931,18 +965,29 @@ th:first-child {
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1px;
+  grid-template-columns: 1fr;
   margin: 1.75rem 0;
-  background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-block);
-  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+@media (min-width: 640px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .card {
   padding: 1.35rem 1.4rem;
   background: var(--surface);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .card h3 {
@@ -1151,6 +1196,8 @@ footer.site-footer {
 }
 
 .footer-inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 2rem;
@@ -1190,6 +1237,8 @@ footer.site-footer {
 
 .landing-hero {
   position: relative;
+  max-width: var(--page-max);
+  margin: 0 auto;
   padding: clamp(3rem, 8vw, 6rem) var(--gutter) 3rem;
   overflow: hidden;
   display: grid;
@@ -1201,19 +1250,48 @@ footer.site-footer {
   grid-column: span 12;
 }
 
-@media (min-width: 900px) {
-  .landing-hero .hero-copy {
-    grid-column: span 7;
-  }
-  .landing-hero .hero-term {
-    grid-column: 9 / span 4;
-    align-self: start;
-  }
+.hero-copy .button-row {
+  margin-bottom: 0.75rem;
+}
+
+.hero-copy .code-wrap {
+  margin-top: 0;
 }
 
 .landing-hero .hero-term {
   grid-column: span 12;
   margin-top: 1rem;
+}
+
+.hero-term-caption {
+  margin: 0.9rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--muted-dim);
+}
+
+.hero-term-caption a {
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-term-caption a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+@media (min-width: 900px) {
+  .landing-hero .hero-copy {
+    grid-column: span 7;
+  }
+  .landing-hero .hero-term {
+    grid-column: 8 / span 5;
+    align-self: start;
+    justify-self: end;
+    width: 100%;
+    max-width: 460px;
+    margin-top: 0.25rem;
+  }
 }
 
 .landing-hero h1 {
@@ -1236,6 +1314,7 @@ footer.site-footer {
 .landing-section {
   padding: 0 var(--gutter);
   max-width: 76rem;
+  margin: 0 auto;
 }
 
 .landing-section.full-bleed {
