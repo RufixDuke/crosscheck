@@ -838,8 +838,10 @@ pre.code-block code {
 
 .copy-btn {
   position: absolute;
-  top: 0.6rem;
+  top: 50%;
   right: 0.6rem;
+  transform: translateY(-50%);
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;

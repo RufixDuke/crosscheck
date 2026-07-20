@@ -107,7 +107,7 @@ const HISTORY_OFF_CONFIG = '{\n  "version": 1,\n  "history": { "enabled": false 
 /** Landing-page demo repo: one commit of clean baselines, then a staged
  * agent-style change set that trips four high-signal rules at once. */
 async function buildHeroRepo(parent) {
-  const repo = await makeRepo(parent, "proteintrail-api");
+  const repo = await makeRepo(parent, "acme-api");
   await write(repo, "crosscheck.config.json", HISTORY_OFF_CONFIG);
   await write(
     repo,
