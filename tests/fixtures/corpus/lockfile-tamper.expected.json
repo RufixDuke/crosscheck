@@ -1,0 +1,6 @@
+{
+  "description": "package-lock.json changed, package.json untouched (§15.2 row 9, §11.2). Lockfiles are ignored at ingest — this must show up in diff.ignored / report.stats.ignored, never enter rule evaluation as a finding.",
+  "expectFindings": [],
+  "expectNoFindings": [],
+  "enableRules": []
+}

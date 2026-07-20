@@ -1,0 +1,11 @@
+diff --git a/package-lock.json b/package-lock.json
+index aaaa111..bbbb222 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -1,5 +1,5 @@
+ {
+   "name": "some-app",
+-  "version": "1.2.3",
++  "version": "1.2.4",
+   "lockfileVersion": 3
+ }

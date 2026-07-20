@@ -1,0 +1,11 @@
+diff --git a/assets/logo.png b/assets/logo.png
+index 3b5e8a1..9f2c4d7 100644
+Binary files a/assets/logo.png and b/assets/logo.png differ
+diff --git a/src/code.ts b/src/code.ts
+index 333cccc..444dddd 100644
+--- a/src/code.ts
++++ b/src/code.ts
+@@ -1,2 +1,2 @@
+ const keep = true;
+-const version = 1;
++const version = 2;

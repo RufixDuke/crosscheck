@@ -1,0 +1,9 @@
+{
+  "description": "Same handler as no-verify-webhook, but createHmac/verifySignature guard exists elsewhere in the same file. §7.9 verifyInFile downgrades the finding to an info note ('guard found at line N') — it must not appear in active findings, the checklist, or count toward --strict.",
+  "expectFindings": [],
+  "expectNoFindings": ["payments/webhook-endpoint"],
+  "enableRules": [],
+  "readFileAtHead": {
+    "src/routes/webhooks.ts": "import { createHmac } from \"crypto\";\nimport { Router } from \"express\";\nconst router = Router();\nfunction verifySignature(rawBody: string, signature: string, secret: string): boolean {\n  const digest = createHmac(\"sha256\", secret).update(rawBody).digest(\"hex\");\n  return digest === signature;\n}\nrouter.post(\"/webhooks/paystack\", handler);\nexport default router;\n"
+  }
+}

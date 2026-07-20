@@ -1,0 +1,44 @@
+diff --git a/src/auth/session.ts b/src/auth/session.ts
+index 3b5e8a1..9f2c4d7 100644
+--- a/src/auth/session.ts
++++ b/src/auth/session.ts
+@@ -10,6 +10,7 @@ export function createSession() {
+ const a = 1;
+ const b = 2;
+-const c = 3;
++const c = 4;
++const d = 5;
+ const e = 6;
+ const f = 7;
+ const g = 8;
+@@ -40,6 +41,7 @@ export function destroySession() {
+ const x = 1;
+ const y = 2;
++const z = 3;
+ const p = 4;
+ const q = 5;
+ const r = 6;
+ const s = 7;
+diff --git a/src/db/migrate.ts b/src/db/migrate.ts
+index 8a1b2c3..d4e5f60 100644
+--- a/src/db/migrate.ts
++++ b/src/db/migrate.ts
+@@ -1,5 +1,6 @@
+ import { db } from "./client";
+ 
+-export async function up() {
+-  await db.raw("SELECT 1");
++export async function up(): Promise<void> {
++  await db.migrate.latest();
++  console.log("migrated");
+ }
+diff --git a/README.md b/README.md
+index 111aaaa..222bbbb 100644
+--- a/README.md
++++ b/README.md
+@@ -2,4 +2,4 @@
+ 
+ Some intro text.
+-Old setup instructions.
++New setup instructions.
+ Another line.

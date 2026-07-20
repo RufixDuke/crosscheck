@@ -1,0 +1,12 @@
+diff --git a/src/utils/reset-token.ts b/src/utils/reset-token.ts
+index 7777777..8888888 100644
+--- a/src/utils/reset-token.ts
++++ b/src/utils/reset-token.ts
+@@ -1,4 +1,7 @@
+ import crypto from "crypto";
+ export function hashToken(token: string): string {
+   return crypto.createHash("sha256").update(token).digest("hex");
+ }
++export function hashResetToken(token: string): string {
++  return crypto.createHash("md5").update(token).digest("hex");
++}

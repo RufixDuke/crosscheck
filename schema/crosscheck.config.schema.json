@@ -1,0 +1,299 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/<org>/crosscheck/main/schema/crosscheck.config.schema.json",
+  "title": "CrossCheck configuration",
+  "description": "Configuration for CrossCheck, the local-first pre-push AI self-review CLI (CROSSCHECK_PRD.md §12.2).",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Editor completion pointer to this schema. Always allowed, never required."
+    },
+    "version": {
+      "description": "Config schema version. This release of CrossCheck supports version 1 only.",
+      "const": 1,
+      "default": 1
+    },
+    "rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Rule enablement, retuning, and custom rules (§7).",
+      "properties": {
+        "disable": {
+          "type": "array",
+          "description": "Built-in rule ids to turn off.",
+          "items": { "type": "string" },
+          "default": []
+        },
+        "enable": {
+          "type": "array",
+          "description": "Opt-in built-in rule ids to turn ON (§7.2: payments/amount-math, db/raw-sql-injection, crypto/insecure-random).",
+          "items": { "type": "string" },
+          "default": []
+        },
+        "dependencySignals": {
+          "type": "boolean",
+          "description": "Read package.json once per run to tailor findings — downgrade severity / append note / swap remediation (§7.10).",
+          "default": true
+        },
+        "severityOverrides": {
+          "type": "object",
+          "description": "Retune built-in severities per project, keyed by rule id.",
+          "additionalProperties": { "$ref": "#/$defs/severity" },
+          "default": {}
+        },
+        "custom": {
+          "type": "array",
+          "description": "User-defined rules; glob+regex only in MVP (§7.5).",
+          "items": { "$ref": "#/$defs/customRule" },
+          "default": []
+        }
+      }
+    },
+    "ignore": {
+      "type": "array",
+      "description": "Extra globs excluded at ingest. Built-ins (lockfiles, dist, binaries) always apply.",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "llm": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "BYOK summarization layer (§5.9, §10).",
+      "properties": {
+        "provider": {
+          "description": "LLM provider; null disables the LLM pass.",
+          "enum": ["anthropic", "openai", "openrouter", null],
+          "default": null
+        },
+        "model": {
+          "type": ["string", "null"],
+          "description": "Any model slug valid for the provider.",
+          "default": null
+        },
+        "apiKeyEnv": {
+          "type": ["string", "null"],
+          "description": "NAME of the environment variable holding the API key; the key itself is never stored.",
+          "default": null
+        },
+        "maxTokensPerReview": {
+          "type": "integer",
+          "description": "Input-token ceiling per review.",
+          "default": 48000
+        },
+        "maxTokensPerCluster": {
+          "type": "integer",
+          "description": "Per-cluster summary token cap.",
+          "default": 6000
+        },
+        "maxCostUsdPerReview": {
+          "type": "number",
+          "description": "Aborts the LLM pass (heuristics still render) if the estimate exceeds this.",
+          "default": 0.25
+        },
+        "temperature": {
+          "type": "number",
+          "default": 0.2
+        },
+        "timeoutMs": {
+          "type": "integer",
+          "description": "Provider request timeout in milliseconds.",
+          "default": 30000
+        },
+        "anonymizePaths": {
+          "type": "boolean",
+          "description": "Replace file paths with opaque placeholders before transmission (§10.2 stage 5).",
+          "default": false
+        },
+        "consentGiven": {
+          "type": "object",
+          "description": "Per-provider consent map; written by the consent flow, keyed by provider name.",
+          "additionalProperties": { "type": "boolean" },
+          "default": {}
+        }
+      }
+    },
+    "strict": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "failOn": {
+          "allOf": [{ "$ref": "#/$defs/severity" }],
+          "description": "Severity threshold for --strict exit 1.",
+          "default": "high"
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "enum": ["terminal", "markdown", "json"],
+          "default": "terminal"
+        },
+        "color": {
+          "type": "boolean",
+          "description": "Auto-disabled when piped regardless; NO_COLOR forces false.",
+          "default": true
+        },
+        "maxTests": {
+          "type": "integer",
+          "description": "Cap on suggested manual tests.",
+          "default": 12
+        },
+        "maxClusters": {
+          "type": "integer",
+          "description": "Cap on rendered clusters.",
+          "default": 8
+        }
+      }
+    },
+    "history": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Local SQLite review history (§6.3).",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "false = run stateless (no SQLite reads/writes).",
+          "default": true
+        },
+        "dbPath": {
+          "type": "string",
+          "description": "Resolved against the repo root; \"~\" allowed.",
+          "default": ".git/crosscheck/history.db"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "severity": {
+      "enum": ["high", "medium", "low"]
+    },
+    "customRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "A user-defined rule (§7.5). Glob+regex matchers only in MVP; compound requireAll/notAddedWith, verifyInFile guard reads, and dependencySignals are allowed. AST matchers are built-in-rule only.",
+      "required": ["id", "name", "category", "severity", "enabledByDefault", "description", "when", "then"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Stable, kebab-case, namespaced, e.g. \"client/no-console-in-prod\". Reusing a built-in id overrides that built-in."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Human name shown in `crosscheck rules`."
+        },
+        "category": {
+          "type": "string",
+          "minLength": 1,
+          "description": "e.g. \"custom\" or one of the built-in categories."
+        },
+        "severity": { "$ref": "#/$defs/severity" },
+        "enabledByDefault": {
+          "type": "boolean",
+          "description": "Same two-tier semantics as built-ins (§7.2): false = listed as opt-in in `crosscheck rules`."
+        },
+        "archetype": {
+          "enum": ["A1", "A2", "A3", "A4"],
+          "description": "Design-lens coverage tag (§7.11); metadata, never evaluated."
+        },
+        "description": {
+          "type": "string",
+          "description": "Why this matters, one sentence, shown in `rules --verbose`."
+        },
+        "when": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Trigger matchers. AST matchers are built-in-rule only in MVP (§7.5) — custom rules must not declare `ast`.",
+          "properties": {
+            "fileGlobs": {
+              "type": "array",
+              "description": "picomatch globs; ANY match gates the rule (cheap prefilter).",
+              "items": { "type": "string" }
+            },
+            "addedLines": {
+              "type": "array",
+              "description": "Regex sources matched against ADDED hunk lines.",
+              "items": { "type": "string", "format": "regex" }
+            },
+            "removedLines": {
+              "type": "array",
+              "description": "Regex sources matched against REMOVED hunk lines.",
+              "items": { "type": "string", "format": "regex" }
+            },
+            "requireAll": {
+              "type": "boolean",
+              "description": "Default false = ANY trigger pattern fires; true = every declared trigger kind must fire (§7.8).",
+              "default": false
+            },
+            "notAddedWith": {
+              "type": "array",
+              "description": "Guard regexes: a match in the ADDED lines vetoes the finding (§7.8).",
+              "items": { "type": "string", "format": "regex" }
+            },
+            "verifyInFile": {
+              "type": "boolean",
+              "description": "High-severity rules only: re-check guards against the full current file before firing (§7.9).",
+              "default": false
+            }
+          }
+        },
+        "dependencySignals": {
+          "type": "object",
+          "description": "Package name → finding adjustment (§7.10).",
+          "additionalProperties": { "$ref": "#/$defs/dependencySignal" }
+        },
+        "then": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["message", "checklist"],
+          "properties": {
+            "message": {
+              "type": "string",
+              "minLength": 1,
+              "description": "1-line finding text."
+            },
+            "checklist": {
+              "type": "array",
+              "description": "Concrete verification items (imperative, checkable).",
+              "items": { "type": "string" }
+            },
+            "manualTests": {
+              "type": "array",
+              "description": "Suggested manual tests (imperative, runnable).",
+              "items": { "type": "string" }
+            },
+            "references": {
+              "type": "array",
+              "description": "Optional doc links (offline-safe: printed, not fetched).",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "dependencySignal": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "downgradeTo": {
+          "allOf": [{ "$ref": "#/$defs/severity" }],
+          "description": "Fire one level lower when this package is installed."
+        },
+        "note": {
+          "type": "string",
+          "description": "Appended to the finding."
+        },
+        "swapRemediation": {
+          "type": "string",
+          "description": "Replaces the lead checklist item with SDK-specific guidance."
+        }
+      }
+    }
+  }
+}

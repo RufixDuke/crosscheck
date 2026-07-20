@@ -1,0 +1,6 @@
+{
+  "description": "A new migration file with DROP TABLE plus a NOT NULL column added with no DEFAULT (§15.2 row 8). db/destructive-migration fires on the DROP/ALTER-NOT-NULL regexes; db/migration-added fires on the **/migrations/** glob alone.",
+  "expectFindings": ["db/destructive-migration", "db/migration-added"],
+  "expectNoFindings": [],
+  "enableRules": []
+}

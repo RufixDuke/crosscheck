@@ -1,0 +1,9 @@
+{
+  "description": "PRD §2.3 Scenario B verbatim: a Paystack webhook route added with zero signature verification anywhere in the file. readFileAtHead supplies the §7.9 verifyInFile full-file re-check content — no createHmac/verifySignature anywhere, so the finding stays at full (high) severity.",
+  "expectFindings": ["payments/webhook-endpoint"],
+  "expectNoFindings": [],
+  "enableRules": [],
+  "readFileAtHead": {
+    "src/routes/webhooks.ts": "import { Router } from \"express\";\nconst router = Router();\nrouter.post(\"/webhooks/paystack\", handler);\nexport default router;\n"
+  }
+}

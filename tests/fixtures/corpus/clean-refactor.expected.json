@@ -1,0 +1,9 @@
+{
+  "description": "Genuinely benign refactor: renamed variables, an extracted helper function, and a Tailwind-class tweak, touching no auth/payments/db/crypto-shaped path (§15.2 row 10). The false-positive sentinel — any rule firing here is a bug in the fixture or the rule, not something to paper over. astNewFileContent is included so crypto/weak-hash's AST matcher is exercised for real, not just skipped because no AST project was built.",
+  "expectFindings": [],
+  "expectNoFindings": [],
+  "enableRules": [],
+  "astNewFileContent": {
+    "src/components/user-label.ts": "export function renderLabel(user: { name: string; title: string }): string {\n  const name = formatPart(user.name);\n  const title = formatPart(user.title);\n  return `<span class=\"text-sm text-gray-600 font-medium\">${name} — ${title}</span>`;\n}\n\nfunction formatPart(value: string): string {\n  return value.trim();\n}\n"
+  }
+}

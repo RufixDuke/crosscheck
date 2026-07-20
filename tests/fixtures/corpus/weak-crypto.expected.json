@@ -1,0 +1,9 @@
+{
+  "description": "crypto.createHash(\"md5\") used to derive a password-reset token (§15.2 row 5). crypto/weak-hash is an AST matcher — astNewFileContent gives the corpus test the full post-diff file so ts-morph parses real TS, not just a regex over the hunk text.",
+  "expectFindings": ["crypto/weak-hash"],
+  "expectNoFindings": ["secrets/hardcoded-secret"],
+  "enableRules": [],
+  "astNewFileContent": {
+    "src/utils/reset-token.ts": "import crypto from \"crypto\";\nexport function hashToken(token: string): string {\n  return crypto.createHash(\"sha256\").update(token).digest(\"hex\");\n}\nexport function hashResetToken(token: string): string {\n  return crypto.createHash(\"md5\").update(token).digest(\"hex\");\n}\n"
+  }
+}

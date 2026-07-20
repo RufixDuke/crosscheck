@@ -1,0 +1,26 @@
+diff --git a/package-lock.json b/package-lock.json
+index 3b5e8a1..9f2c4d7 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -1,5 +1,5 @@
+ {
+   "name": "demo",
+-  "lockfileVersion": 2,
++  "lockfileVersion": 3,
+   "requires": true
+ }
+diff --git a/dist/bundle.js b/dist/bundle.js
+index 111aaaa..222bbbb 100644
+--- a/dist/bundle.js
++++ b/dist/bundle.js
+@@ -1 +1 @@
+-function e(){return 41}
++function e(){return 42}
+diff --git a/src/real.ts b/src/real.ts
+index 333cccc..444dddd 100644
+--- a/src/real.ts
++++ b/src/real.ts
+@@ -1,2 +1,3 @@
+ export const real = true;
++export const added = "this file is hand-written";
+ // keep me

@@ -1,0 +1,1556 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`golden snapshots (§15.3) — clean-refactor (all-clean case) > renders terminal/markdown/json for a benign refactor with zero findings > clean-refactor.json 1`] = `
+"{
+  "toolVersion": "0.0.0-test",
+  "createdAt": "1970-01-01T00:00:00.000Z",
+  "repo": {
+    "root": "/repo",
+    "name": "repo"
+  },
+  "range": {
+    "desc": "staged"
+  },
+  "mode": {
+    "llm": false,
+    "offline": true
+  },
+  "stats": {
+    "filesChanged": 1,
+    "linesAdded": 7,
+    "linesRemoved": 3,
+    "durationMs": 0,
+    "ignored": {
+      "count": 0,
+      "byReason": {},
+      "examples": []
+    }
+  },
+  "clusters": [
+    {
+      "id": "c1",
+      "label": "components/render",
+      "files": [
+        {
+          "path": "src/components/user-label.ts",
+          "hunks": [
+            {
+              "filePath": "src/components/user-label.ts",
+              "oldStart": 1,
+              "oldLines": 5,
+              "newStart": 1,
+              "newLines": 9,
+              "lines": [
+                {
+                  "type": "context",
+                  "content": "export function renderLabel(user: { name: string; title: string }): string {",
+                  "oldLine": 1,
+                  "newLine": 1
+                },
+                {
+                  "type": "del",
+                  "content": "  const n = user.name.trim();",
+                  "oldLine": 2
+                },
+                {
+                  "type": "del",
+                  "content": "  const t = user.title.trim();",
+                  "oldLine": 3
+                },
+                {
+                  "type": "del",
+                  "content": "  return \`<span class=\\"text-sm text-gray-500\\">\${n} - \${t}</span>\`;",
+                  "oldLine": 4
+                },
+                {
+                  "type": "add",
+                  "content": "  const name = formatPart(user.name);",
+                  "newLine": 2
+                },
+                {
+                  "type": "add",
+                  "content": "  const title = formatPart(user.title);",
+                  "newLine": 3
+                },
+                {
+                  "type": "add",
+                  "content": "  return \`<span class=\\"text-sm text-gray-600 font-medium\\">\${name} — \${title}</span>\`;",
+                  "newLine": 4
+                },
+                {
+                  "type": "add",
+                  "content": "}",
+                  "newLine": 5
+                },
+                {
+                  "type": "add",
+                  "content": "",
+                  "newLine": 6
+                },
+                {
+                  "type": "add",
+                  "content": "function formatPart(value: string): string {",
+                  "newLine": 7
+                },
+                {
+                  "type": "add",
+                  "content": "  return value.trim();",
+                  "newLine": 8
+                },
+                {
+                  "type": "context",
+                  "content": "}",
+                  "oldLine": 5,
+                  "newLine": 9
+                }
+              ],
+              "hash": "abc2e8f52b7872730c03e5c77e14d1c65b7864c2"
+            }
+          ],
+          "added": 7,
+          "removed": 3
+        }
+      ],
+      "hunks": [
+        {
+          "filePath": "src/components/user-label.ts",
+          "oldStart": 1,
+          "oldLines": 5,
+          "newStart": 1,
+          "newLines": 9,
+          "lines": [
+            {
+              "type": "context",
+              "content": "export function renderLabel(user: { name: string; title: string }): string {",
+              "oldLine": 1,
+              "newLine": 1
+            },
+            {
+              "type": "del",
+              "content": "  const n = user.name.trim();",
+              "oldLine": 2
+            },
+            {
+              "type": "del",
+              "content": "  const t = user.title.trim();",
+              "oldLine": 3
+            },
+            {
+              "type": "del",
+              "content": "  return \`<span class=\\"text-sm text-gray-500\\">\${n} - \${t}</span>\`;",
+              "oldLine": 4
+            },
+            {
+              "type": "add",
+              "content": "  const name = formatPart(user.name);",
+              "newLine": 2
+            },
+            {
+              "type": "add",
+              "content": "  const title = formatPart(user.title);",
+              "newLine": 3
+            },
+            {
+              "type": "add",
+              "content": "  return \`<span class=\\"text-sm text-gray-600 font-medium\\">\${name} — \${title}</span>\`;",
+              "newLine": 4
+            },
+            {
+              "type": "add",
+              "content": "}",
+              "newLine": 5
+            },
+            {
+              "type": "add",
+              "content": "",
+              "newLine": 6
+            },
+            {
+              "type": "add",
+              "content": "function formatPart(value: string): string {",
+              "newLine": 7
+            },
+            {
+              "type": "add",
+              "content": "  return value.trim();",
+              "newLine": 8
+            },
+            {
+              "type": "context",
+              "content": "}",
+              "oldLine": 5,
+              "newLine": 9
+            }
+          ],
+          "hash": "abc2e8f52b7872730c03e5c77e14d1c65b7864c2"
+        }
+      ],
+      "symbols": [
+        "renderLabel",
+        "formatPart"
+      ],
+      "added": 7,
+      "removed": 3,
+      "severity": "low"
+    }
+  ],
+  "findings": [],
+  "checklist": [
+    {
+      "severity": "low",
+      "text": "Read the full diff of every ▲ cluster top to bottom — rules catch patterns, not logic",
+      "clusterId": "general",
+      "clusterLabel": "general",
+      "acknowledged": false
+    }
+  ],
+  "manualTests": [],
+  "manualTestsCapped": 0,
+  "previouslyReviewed": {
+    "hunkCount": 0,
+    "findingCount": 0,
+    "findings": []
+  },
+  "infoFindings": [],
+  "footer": {
+    "astAnalyzed": 1,
+    "astSkipped": 0,
+    "historyAvailable": false,
+    "notices": []
+  },
+  "summary": {
+    "range": "staged",
+    "files": 1,
+    "added": 7,
+    "removed": 3,
+    "clusters": 1,
+    "findings": {
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "acknowledged": 0
+    },
+    "failOn": null,
+    "exitCode": null,
+    "durationMs": 0
+  }
+}"
+`;
+
+exports[`golden snapshots (§15.3) — clean-refactor (all-clean case) > renders terminal/markdown/json for a benign refactor with zero findings > clean-refactor.markdown 1`] = `
+"## CrossCheck review — staged (1 file, +7 / −3)
+
+_Generated 1970-01-01 00:00 UTC · CrossCheck v0.0.0-test · heuristic (offline) mode_
+
+### Risk map
+
+_all 1 cluster are low-risk by current rules — still read the diff_
+
+### Review checklist
+
+- [ ] **(GENERAL)** Read the full diff of every ▲ cluster top to bottom — rules catch patterns, not logic
+
+### Manual tests performed
+
+_No manual tests suggested by the rules that fired._
+
+> Heuristics catch patterns, not logic. This report records that a human
+> reviewed the change; it is not a guarantee of correctness."
+`;
+
+exports[`golden snapshots (§15.3) — clean-refactor (all-clean case) > renders terminal/markdown/json for a benign refactor with zero findings > clean-refactor.terminal 1`] = `
+"CrossCheck v0.0.0-test — pre-push self-review
+repo:    repo
+range:   staged (1 file, +7 / −3)
+mode:    heuristic (offline) · 0.0s
+
+RISK MAP
+────────────────────────────────────────────────────────────────────
+ all 1 cluster are low-risk by current rules — still read the diff
+────────────────────────────────────────────────────────────────────
+
+REVIEW CHECKLIST — 1 item (0 high-risks first)
+────────────────────────────────────────────────────────────────────
+■ general
+  ☐ 1. Read the full diff of every ▲ cluster top to bottom — rules catch patterns, not logic (general)
+
+SUGGESTED MANUAL TESTS
+────────────────────────────────────────────────────────────────────
+  (none suggested by the rules that fired)
+
+Next: --ack to mark all verified · --strict to gate · export --format markdown
+Note: rules catch patterns, not logic. You are still the reviewer."
+`;
+
+exports[`golden snapshots (§15.3) — destructive-migration > renders terminal/markdown/json for a DROP TABLE + non-nullable-column-without-default migration > destructive-migration.json 1`] = `
+"{
+  "toolVersion": "0.0.0-test",
+  "createdAt": "1970-01-01T00:00:00.000Z",
+  "repo": {
+    "root": "/repo",
+    "name": "repo"
+  },
+  "range": {
+    "desc": "staged"
+  },
+  "mode": {
+    "llm": false,
+    "offline": true
+  },
+  "stats": {
+    "filesChanged": 1,
+    "linesAdded": 3,
+    "linesRemoved": 0,
+    "durationMs": 0,
+    "ignored": {
+      "count": 0,
+      "byReason": {},
+      "examples": []
+    }
+  },
+  "clusters": [
+    {
+      "id": "c1",
+      "label": "db: drop_sessions migration",
+      "files": [
+        {
+          "path": "migrations/0007_drop_sessions.sql",
+          "hunks": [
+            {
+              "filePath": "migrations/0007_drop_sessions.sql",
+              "oldStart": 0,
+              "oldLines": 0,
+              "newStart": 1,
+              "newLines": 3,
+              "lines": [
+                {
+                  "type": "add",
+                  "content": "DROP TABLE sessions;",
+                  "newLine": 1
+                },
+                {
+                  "type": "add",
+                  "content": "ALTER TABLE users ADD COLUMN email_verified boolean NOT NULL;",
+                  "newLine": 2
+                },
+                {
+                  "type": "add",
+                  "content": "-- no backfill or rollback provided",
+                  "newLine": 3
+                }
+              ],
+              "hash": "04ba613310ff2d1307a67c7cc86cb44f038f9aae"
+            }
+          ],
+          "added": 3,
+          "removed": 0,
+          "isNew": true
+        }
+      ],
+      "hunks": [
+        {
+          "filePath": "migrations/0007_drop_sessions.sql",
+          "oldStart": 0,
+          "oldLines": 0,
+          "newStart": 1,
+          "newLines": 3,
+          "lines": [
+            {
+              "type": "add",
+              "content": "DROP TABLE sessions;",
+              "newLine": 1
+            },
+            {
+              "type": "add",
+              "content": "ALTER TABLE users ADD COLUMN email_verified boolean NOT NULL;",
+              "newLine": 2
+            },
+            {
+              "type": "add",
+              "content": "-- no backfill or rollback provided",
+              "newLine": 3
+            }
+          ],
+          "hash": "04ba613310ff2d1307a67c7cc86cb44f038f9aae"
+        }
+      ],
+      "symbols": [],
+      "added": 3,
+      "removed": 0,
+      "severity": "high"
+    }
+  ],
+  "findings": [
+    {
+      "ruleId": "db/migration-added",
+      "baseSeverity": "medium",
+      "severity": "medium",
+      "file": "migrations/0007_drop_sessions.sql",
+      "line": 1,
+      "evidence": "migrations/0007_drop_sessions.sql",
+      "message": "Database migration/schema file changed",
+      "checklist": [
+        "Run the migration against a production-shaped dump locally; confirm backfill + rollback path",
+        "Confirm the migration is reversible — a DOWN path exists and actually runs",
+        "Check lock impact: table rewrites and index builds on large tables need a plan",
+        "Confirm app code and schema land together (no deploy order that strands either side)"
+      ],
+      "manualTests": [
+        "Apply the migration to a copy of production-shaped data and boot the app against it",
+        "Run the down migration and confirm the app still boots"
+      ],
+      "hunkHash": "04ba613310ff2d1307a67c7cc86cb44f038f9aae"
+    },
+    {
+      "ruleId": "db/destructive-migration",
+      "baseSeverity": "high",
+      "severity": "high",
+      "file": "migrations/0007_drop_sessions.sql",
+      "line": 1,
+      "evidence": "DROP TABLE sessions;",
+      "message": "Migration contains potentially destructive operations",
+      "checklist": [
+        "Read the migration line by line — do not skim migrations, ever",
+        "Confirm every DROP/TRUNCATE targets something truly disposable (not renamed-away production data)",
+        "For NOT NULL columns without DEFAULT: confirm the backfill strategy and table-lock impact",
+        "Write or verify the DOWN/rollback migration before pushing"
+      ],
+      "manualTests": [
+        "Restore a production-shaped dump locally and run the migration against it",
+        "Run the down migration and confirm the app still boots",
+        "Run the app against the migrated schema and exercise the affected feature end to end"
+      ],
+      "hunkHash": "04ba613310ff2d1307a67c7cc86cb44f038f9aae"
+    },
+    {
+      "ruleId": "db/destructive-migration",
+      "baseSeverity": "high",
+      "severity": "high",
+      "file": "migrations/0007_drop_sessions.sql",
+      "line": 2,
+      "evidence": "ALTER TABLE users ADD COLUMN email_verified boolean NOT NULL;",
+      "message": "Migration contains potentially destructive operations",
+      "checklist": [
+        "Read the migration line by line — do not skim migrations, ever",
+        "Confirm every DROP/TRUNCATE targets something truly disposable (not renamed-away production data)",
+        "For NOT NULL columns without DEFAULT: confirm the backfill strategy and table-lock impact",
+        "Write or verify the DOWN/rollback migration before pushing"
+      ],
+      "manualTests": [
+        "Restore a production-shaped dump locally and run the migration against it",
+        "Run the down migration and confirm the app still boots",
+        "Run the app against the migrated schema and exercise the affected feature end to end"
+      ],
+      "hunkHash": "04ba613310ff2d1307a67c7cc86cb44f038f9aae"
+    }
+  ],
+  "checklist": [
+    {
+      "severity": "high",
+      "text": "Read the migration line by line — do not skim migrations, ever",
+      "file": "migrations/0007_drop_sessions.sql",
+      "line": 1,
+      "ruleId": "db/destructive-migration",
+      "clusterId": "c1",
+      "clusterLabel": "db: drop_sessions migration",
+      "acknowledged": false
+    },
+    {
+      "severity": "high",
+      "text": "Confirm every DROP/TRUNCATE targets something truly disposable (not renamed-away production data)",
+      "file": "migrations/0007_drop_sessions.sql",
+      "line": 1,
+      "ruleId": "db/destructive-migration",
+      "clusterId": "c1",
+      "clusterLabel": "db: drop_sessions migration",
+      "acknowledged": false
+    },
+    {
+      "severity": "high",
+      "text": "For NOT NULL columns without DEFAULT: confirm the backfill strategy and table-lock impact",
+      "file": "migrations/0007_drop_sessions.sql",
+      "line": 1,
+      "ruleId": "db/destructive-migration",
+      "clusterId": "c1",
+      "clusterLabel": "db: drop_sessions migration",
+      "acknowledged": false
+    },
+    {
+      "severity": "high",
+      "text": "Write or verify the DOWN/rollback migration before pushing",
+      "file": "migrations/0007_drop_sessions.sql",
+      "line": 1,
+      "ruleId": "db/destructive-migration",
+      "clusterId": "c1",
+      "clusterLabel": "db: drop_sessions migration",
+      "acknowledged": false
+    },
+    {
+      "severity": "medium",
+      "text": "Run the migration against a production-shaped dump locally; confirm backfill + rollback path",
+      "file": "migrations/0007_drop_sessions.sql",
+      "line": 1,
+      "ruleId": "db/migration-added",
+      "clusterId": "c1",
+      "clusterLabel": "db: drop_sessions migration",
+      "acknowledged": false
+    },
+    {
+      "severity": "medium",
+      "text": "Confirm the migration is reversible — a DOWN path exists and actually runs",
+      "file": "migrations/0007_drop_sessions.sql",
+      "line": 1,
+      "ruleId": "db/migration-added",
+      "clusterId": "c1",
+      "clusterLabel": "db: drop_sessions migration",
+      "acknowledged": false
+    },
+    {
+      "severity": "medium",
+      "text": "Check lock impact: table rewrites and index builds on large tables need a plan",
+      "file": "migrations/0007_drop_sessions.sql",
+      "line": 1,
+      "ruleId": "db/migration-added",
+      "clusterId": "c1",
+      "clusterLabel": "db: drop_sessions migration",
+      "acknowledged": false
+    },
+    {
+      "severity": "medium",
+      "text": "Confirm app code and schema land together (no deploy order that strands either side)",
+      "file": "migrations/0007_drop_sessions.sql",
+      "line": 1,
+      "ruleId": "db/migration-added",
+      "clusterId": "c1",
+      "clusterLabel": "db: drop_sessions migration",
+      "acknowledged": false
+    },
+    {
+      "severity": "low",
+      "text": "Read the full diff of every ▲ cluster top to bottom — rules catch patterns, not logic",
+      "clusterId": "general",
+      "clusterLabel": "general",
+      "acknowledged": false
+    }
+  ],
+  "manualTests": [
+    {
+      "severity": "high",
+      "text": "Restore a production-shaped dump locally and run the migration against it",
+      "clusterId": "c1",
+      "clusterLabel": "db: drop_sessions migration"
+    },
+    {
+      "severity": "high",
+      "text": "Run the down migration and confirm the app still boots",
+      "clusterId": "c1",
+      "clusterLabel": "db: drop_sessions migration"
+    },
+    {
+      "severity": "high",
+      "text": "Run the app against the migrated schema and exercise the affected feature end to end",
+      "clusterId": "c1",
+      "clusterLabel": "db: drop_sessions migration"
+    },
+    {
+      "severity": "medium",
+      "text": "Apply the migration to a copy of production-shaped data and boot the app against it",
+      "clusterId": "c1",
+      "clusterLabel": "db: drop_sessions migration"
+    }
+  ],
+  "manualTestsCapped": 0,
+  "previouslyReviewed": {
+    "hunkCount": 0,
+    "findingCount": 0,
+    "findings": []
+  },
+  "infoFindings": [],
+  "footer": {
+    "astAnalyzed": 0,
+    "astSkipped": 0,
+    "historyAvailable": false,
+    "notices": []
+  },
+  "summary": {
+    "range": "staged",
+    "files": 1,
+    "added": 3,
+    "removed": 0,
+    "clusters": 1,
+    "findings": {
+      "high": 2,
+      "medium": 1,
+      "low": 0,
+      "acknowledged": 0
+    },
+    "failOn": null,
+    "exitCode": null,
+    "durationMs": 0
+  }
+}"
+`;
+
+exports[`golden snapshots (§15.3) — destructive-migration > renders terminal/markdown/json for a DROP TABLE + non-nullable-column-without-default migration > destructive-migration.markdown 1`] = `
+"## CrossCheck review — staged (1 file, +3 / −0)
+
+_Generated 1970-01-01 00:00 UTC · CrossCheck v0.0.0-test · heuristic (offline) mode_
+
+### Risk map
+
+| Severity | Cluster | Files | Lines |
+|---|---|---|---|
+| ▲ HIGH | db: drop_sessions migration | 1 | +3 / −0 |
+
+### Review checklist
+
+- [ ] **(HIGH)** Read the migration line by line — do not skim migrations, ever — \`migrations/0007_drop_sessions.sql:1\`
+- [ ] **(HIGH)** Confirm every DROP/TRUNCATE targets something truly disposable (not renamed-away production data) — \`migrations/0007_drop_sessions.sql:1\`
+- [ ] **(HIGH)** For NOT NULL columns without DEFAULT: confirm the backfill strategy and table-lock impact — \`migrations/0007_drop_sessions.sql:1\`
+- [ ] **(HIGH)** Write or verify the DOWN/rollback migration before pushing — \`migrations/0007_drop_sessions.sql:1\`
+- [ ] **(MED)** Run the migration against a production-shaped dump locally; confirm backfill + rollback path — \`migrations/0007_drop_sessions.sql:1\`
+- [ ] **(MED)** Confirm the migration is reversible — a DOWN path exists and actually runs — \`migrations/0007_drop_sessions.sql:1\`
+- [ ] **(MED)** Check lock impact: table rewrites and index builds on large tables need a plan — \`migrations/0007_drop_sessions.sql:1\`
+- [ ] **(MED)** Confirm app code and schema land together (no deploy order that strands either side) — \`migrations/0007_drop_sessions.sql:1\`
+- [ ] **(GENERAL)** Read the full diff of every ▲ cluster top to bottom — rules catch patterns, not logic
+
+### Manual tests performed
+
+- [ ] Restore a production-shaped dump locally and run the migration against it
+- [ ] Run the down migration and confirm the app still boots
+- [ ] Run the app against the migrated schema and exercise the affected feature end to end
+- [ ] Apply the migration to a copy of production-shaped data and boot the app against it
+
+> Heuristics catch patterns, not logic. This report records that a human
+> reviewed the change; it is not a guarantee of correctness."
+`;
+
+exports[`golden snapshots (§15.3) — destructive-migration > renders terminal/markdown/json for a DROP TABLE + non-nullable-column-without-default migration > destructive-migration.terminal 1`] = `
+"CrossCheck v0.0.0-test — pre-push self-review
+repo:    repo
+range:   staged (1 file, +3 / −0)
+mode:    heuristic (offline) · 0.0s
+
+RISK MAP — 1 high-risk cluster in 1 file
+────────────────────────────────────────────────────────────────────
+ ▲  db: drop_sessions migration      1 file   +3 / −0       HIGH
+────────────────────────────────────────────────────────────────────
+
+REVIEW CHECKLIST — 9 items (4 high-risks first)
+────────────────────────────────────────────────────────────────────
+▲ db: drop_sessions migration
+  ☐ 1. Read the migration line by line — do not skim migrations, ever (migrations/0007_drop_sessions.sql:1)
+  ☐ 2. Confirm every DROP/TRUNCATE targets something truly disposable (not renamed-away production data) (migrations/0007_drop_sessions.sql:1)
+  ☐ 3. For NOT NULL columns without DEFAULT: confirm the backfill strategy and table-lock impact (migrations/0007_drop_sessions.sql:1)
+  ☐ 4. Write or verify the DOWN/rollback migration before pushing (migrations/0007_drop_sessions.sql:1)
+  ☐ 5. Run the migration against a production-shaped dump locally; confirm backfill + rollback path (migrations/0007_drop_sessions.sql:1)
+  ☐ 6. Confirm the migration is reversible — a DOWN path exists and actually runs (migrations/0007_drop_sessions.sql:1)
+  ☐ 7. Check lock impact: table rewrites and index builds on large tables need a plan (migrations/0007_drop_sessions.sql:1)
+  … 2 more items (use --verbose to expand)
+
+SUGGESTED MANUAL TESTS
+────────────────────────────────────────────────────────────────────
+  ▲ Restore a production-shaped dump locally and run the migration against it
+  ▲ Run the down migration and confirm the app still boots
+  ▲ Run the app against the migrated schema and exercise the affected feature end to end
+  ● Apply the migration to a copy of production-shaped data and boot the app against it
+
+Next: --ack to mark all verified · --strict to gate · export --format markdown
+Note: rules catch patterns, not logic. You are still the reviewer."
+`;
+
+exports[`golden snapshots (§15.3) — hardcoded-secret > renders terminal/markdown/json for an inline Paystack secret key > hardcoded-secret.json 1`] = `
+"{
+  "toolVersion": "0.0.0-test",
+  "createdAt": "1970-01-01T00:00:00.000Z",
+  "repo": {
+    "root": "/repo",
+    "name": "repo"
+  },
+  "range": {
+    "desc": "staged"
+  },
+  "mode": {
+    "llm": false,
+    "offline": true
+  },
+  "stats": {
+    "filesChanged": 1,
+    "linesAdded": 1,
+    "linesRemoved": 0,
+    "durationMs": 0,
+    "ignored": {
+      "count": 0,
+      "byReason": {},
+      "examples": []
+    }
+  },
+  "clusters": [
+    {
+      "id": "c1",
+      "label": "integrations/paystack",
+      "files": [
+        {
+          "path": "src/integrations/paystack.ts",
+          "hunks": [
+            {
+              "filePath": "src/integrations/paystack.ts",
+              "oldStart": 1,
+              "oldLines": 2,
+              "newStart": 1,
+              "newLines": 3,
+              "lines": [
+                {
+                  "type": "context",
+                  "content": "import axios from \\"axios\\";",
+                  "oldLine": 1,
+                  "newLine": 1
+                },
+                {
+                  "type": "add",
+                  "content": "const apiKey = \\"sk-live-51NqXyzAbCdEfGhIjKlMnOpQr\\";",
+                  "newLine": 2
+                },
+                {
+                  "type": "context",
+                  "content": "export const client = axios.create({ baseURL: \\"https://api.paystack.co\\" });",
+                  "oldLine": 2,
+                  "newLine": 3
+                }
+              ],
+              "hash": "5f31a9b829abf3695af3055b8cdeedd341a1eded"
+            }
+          ],
+          "added": 1,
+          "removed": 0
+        }
+      ],
+      "hunks": [
+        {
+          "filePath": "src/integrations/paystack.ts",
+          "oldStart": 1,
+          "oldLines": 2,
+          "newStart": 1,
+          "newLines": 3,
+          "lines": [
+            {
+              "type": "context",
+              "content": "import axios from \\"axios\\";",
+              "oldLine": 1,
+              "newLine": 1
+            },
+            {
+              "type": "add",
+              "content": "const apiKey = \\"sk-live-51NqXyzAbCdEfGhIjKlMnOpQr\\";",
+              "newLine": 2
+            },
+            {
+              "type": "context",
+              "content": "export const client = axios.create({ baseURL: \\"https://api.paystack.co\\" });",
+              "oldLine": 2,
+              "newLine": 3
+            }
+          ],
+          "hash": "5f31a9b829abf3695af3055b8cdeedd341a1eded"
+        }
+      ],
+      "symbols": [],
+      "added": 1,
+      "removed": 0,
+      "severity": "high"
+    }
+  ],
+  "findings": [
+    {
+      "ruleId": "payments/provider-code",
+      "baseSeverity": "high",
+      "severity": "high",
+      "file": "src/integrations/paystack.ts",
+      "line": 2,
+      "evidence": "src/integrations/paystack.ts",
+      "message": "Payment provider code changed",
+      "checklist": [
+        "Re-read every money-moving path that changed; confirm amounts flow server-side",
+        "Confirm no amount, currency, or price is trusted from the client payload",
+        "Confirm idempotency keys survive the change — a retried charge must not double-charge",
+        "Confirm provider errors are mapped deliberately (no silent swallow, no raw leak to the client)"
+      ],
+      "manualTests": [
+        "Run a full test-mode purchase end to end against the provider sandbox",
+        "Retry the same payment request twice — expect exactly one charge",
+        "Force a provider failure (bad key / sandbox decline) — expect a clean error path"
+      ],
+      "hunkHash": "5f31a9b829abf3695af3055b8cdeedd341a1eded"
+    },
+    {
+      "ruleId": "secrets/hardcoded-secret",
+      "baseSeverity": "high",
+      "severity": "high",
+      "file": "src/integrations/paystack.ts",
+      "line": 2,
+      "evidence": "const apiKey = \\"sk-live-51NqXyzAbCdEfGhIjKlMnOpQr\\";",
+      "message": "Possible hardcoded secret added",
+      "checklist": [
+        "Confirm the flagged value is not a real credential (test fixtures and public keys are OK)",
+        "If real: revoke/rotate it NOW — assume anything committed is compromised",
+        "Move the value to an environment variable and add it to .env.example with a placeholder",
+        "If it was already committed, scrub history or rotate; check \`git log -p\` before pushing"
+      ],
+      "manualTests": [
+        "Run the app with the credential removed from code to prove env-based loading works"
+      ],
+      "hunkHash": "5f31a9b829abf3695af3055b8cdeedd341a1eded"
+    }
+  ],
+  "checklist": [
+    {
+      "severity": "high",
+      "text": "Re-read every money-moving path that changed; confirm amounts flow server-side",
+      "file": "src/integrations/paystack.ts",
+      "line": 2,
+      "ruleId": "payments/provider-code",
+      "clusterId": "c1",
+      "clusterLabel": "integrations/paystack",
+      "acknowledged": false
+    },
+    {
+      "severity": "high",
+      "text": "Confirm no amount, currency, or price is trusted from the client payload",
+      "file": "src/integrations/paystack.ts",
+      "line": 2,
+      "ruleId": "payments/provider-code",
+      "clusterId": "c1",
+      "clusterLabel": "integrations/paystack",
+      "acknowledged": false
+    },
+    {
+      "severity": "high",
+      "text": "Confirm idempotency keys survive the change — a retried charge must not double-charge",
+      "file": "src/integrations/paystack.ts",
+      "line": 2,
+      "ruleId": "payments/provider-code",
+      "clusterId": "c1",
+      "clusterLabel": "integrations/paystack",
+      "acknowledged": false
+    },
+    {
+      "severity": "high",
+      "text": "Confirm provider errors are mapped deliberately (no silent swallow, no raw leak to the client)",
+      "file": "src/integrations/paystack.ts",
+      "line": 2,
+      "ruleId": "payments/provider-code",
+      "clusterId": "c1",
+      "clusterLabel": "integrations/paystack",
+      "acknowledged": false
+    },
+    {
+      "severity": "high",
+      "text": "Confirm the flagged value is not a real credential (test fixtures and public keys are OK)",
+      "file": "src/integrations/paystack.ts",
+      "line": 2,
+      "ruleId": "secrets/hardcoded-secret",
+      "clusterId": "c1",
+      "clusterLabel": "integrations/paystack",
+      "acknowledged": false
+    },
+    {
+      "severity": "high",
+      "text": "If real: revoke/rotate it NOW — assume anything committed is compromised",
+      "file": "src/integrations/paystack.ts",
+      "line": 2,
+      "ruleId": "secrets/hardcoded-secret",
+      "clusterId": "c1",
+      "clusterLabel": "integrations/paystack",
+      "acknowledged": false
+    },
+    {
+      "severity": "high",
+      "text": "Move the value to an environment variable and add it to .env.example with a placeholder",
+      "file": "src/integrations/paystack.ts",
+      "line": 2,
+      "ruleId": "secrets/hardcoded-secret",
+      "clusterId": "c1",
+      "clusterLabel": "integrations/paystack",
+      "acknowledged": false
+    },
+    {
+      "severity": "high",
+      "text": "If it was already committed, scrub history or rotate; check \`git log -p\` before pushing",
+      "file": "src/integrations/paystack.ts",
+      "line": 2,
+      "ruleId": "secrets/hardcoded-secret",
+      "clusterId": "c1",
+      "clusterLabel": "integrations/paystack",
+      "acknowledged": false
+    },
+    {
+      "severity": "low",
+      "text": "Read the full diff of every ▲ cluster top to bottom — rules catch patterns, not logic",
+      "clusterId": "general",
+      "clusterLabel": "general",
+      "acknowledged": false
+    }
+  ],
+  "manualTests": [
+    {
+      "severity": "high",
+      "text": "Run a full test-mode purchase end to end against the provider sandbox",
+      "clusterId": "c1",
+      "clusterLabel": "integrations/paystack"
+    },
+    {
+      "severity": "high",
+      "text": "Retry the same payment request twice — expect exactly one charge",
+      "clusterId": "c1",
+      "clusterLabel": "integrations/paystack"
+    },
+    {
+      "severity": "high",
+      "text": "Force a provider failure (bad key / sandbox decline) — expect a clean error path",
+      "clusterId": "c1",
+      "clusterLabel": "integrations/paystack"
+    },
+    {
+      "severity": "high",
+      "text": "Run the app with the credential removed from code to prove env-based loading works",
+      "clusterId": "c1",
+      "clusterLabel": "integrations/paystack"
+    }
+  ],
+  "manualTestsCapped": 0,
+  "previouslyReviewed": {
+    "hunkCount": 0,
+    "findingCount": 0,
+    "findings": []
+  },
+  "infoFindings": [],
+  "footer": {
+    "astAnalyzed": 1,
+    "astSkipped": 0,
+    "historyAvailable": false,
+    "notices": []
+  },
+  "summary": {
+    "range": "staged",
+    "files": 1,
+    "added": 1,
+    "removed": 0,
+    "clusters": 1,
+    "findings": {
+      "high": 2,
+      "medium": 0,
+      "low": 0,
+      "acknowledged": 0
+    },
+    "failOn": null,
+    "exitCode": null,
+    "durationMs": 0
+  }
+}"
+`;
+
+exports[`golden snapshots (§15.3) — hardcoded-secret > renders terminal/markdown/json for an inline Paystack secret key > hardcoded-secret.markdown 1`] = `
+"## CrossCheck review — staged (1 file, +1 / −0)
+
+_Generated 1970-01-01 00:00 UTC · CrossCheck v0.0.0-test · heuristic (offline) mode_
+
+### Risk map
+
+| Severity | Cluster | Files | Lines |
+|---|---|---|---|
+| ▲ HIGH | integrations/paystack | 1 | +1 / −0 |
+
+### Review checklist
+
+- [ ] **(HIGH)** Re-read every money-moving path that changed; confirm amounts flow server-side — \`src/integrations/paystack.ts:2\`
+- [ ] **(HIGH)** Confirm no amount, currency, or price is trusted from the client payload — \`src/integrations/paystack.ts:2\`
+- [ ] **(HIGH)** Confirm idempotency keys survive the change — a retried charge must not double-charge — \`src/integrations/paystack.ts:2\`
+- [ ] **(HIGH)** Confirm provider errors are mapped deliberately (no silent swallow, no raw leak to the client) — \`src/integrations/paystack.ts:2\`
+- [ ] **(HIGH)** Confirm the flagged value is not a real credential (test fixtures and public keys are OK) — \`src/integrations/paystack.ts:2\`
+- [ ] **(HIGH)** If real: revoke/rotate it NOW — assume anything committed is compromised — \`src/integrations/paystack.ts:2\`
+- [ ] **(HIGH)** Move the value to an environment variable and add it to .env.example with a placeholder — \`src/integrations/paystack.ts:2\`
+- [ ] **(HIGH)** If it was already committed, scrub history or rotate; check \`git log -p\` before pushing — \`src/integrations/paystack.ts:2\`
+- [ ] **(GENERAL)** Read the full diff of every ▲ cluster top to bottom — rules catch patterns, not logic
+
+### Manual tests performed
+
+- [ ] Run a full test-mode purchase end to end against the provider sandbox
+- [ ] Retry the same payment request twice — expect exactly one charge
+- [ ] Force a provider failure (bad key / sandbox decline) — expect a clean error path
+- [ ] Run the app with the credential removed from code to prove env-based loading works
+
+> Heuristics catch patterns, not logic. This report records that a human
+> reviewed the change; it is not a guarantee of correctness."
+`;
+
+exports[`golden snapshots (§15.3) — hardcoded-secret > renders terminal/markdown/json for an inline Paystack secret key > hardcoded-secret.terminal 1`] = `
+"CrossCheck v0.0.0-test — pre-push self-review
+repo:    repo
+range:   staged (1 file, +1 / −0)
+mode:    heuristic (offline) · 0.0s
+
+RISK MAP — 1 high-risk cluster in 1 file
+────────────────────────────────────────────────────────────────────
+ ▲  integrations/paystack            1 file   +1 / −0       HIGH
+────────────────────────────────────────────────────────────────────
+
+REVIEW CHECKLIST — 9 items (8 high-risks first)
+────────────────────────────────────────────────────────────────────
+▲ integrations/paystack
+  ☐ 1. Re-read every money-moving path that changed; confirm amounts flow server-side (src/integrations/paystack.ts:2)
+  ☐ 2. Confirm no amount, currency, or price is trusted from the client payload (src/integrations/paystack.ts:2)
+  ☐ 3. Confirm idempotency keys survive the change — a retried charge must not double-charge (src/integrations/paystack.ts:2)
+  ☐ 4. Confirm provider errors are mapped deliberately (no silent swallow, no raw leak to the client) (src/integrations/paystack.ts:2)
+  ☐ 5. Confirm the flagged value is not a real credential (test fixtures and public keys are OK) (src/integrations/paystack.ts:2)
+  ☐ 6. If real: revoke/rotate it NOW — assume anything committed is compromised (src/integrations/paystack.ts:2)
+  ☐ 7. Move the value to an environment variable and add it to .env.example with a placeholder (src/integrations/paystack.ts:2)
+  … 2 more items (use --verbose to expand)
+
+SUGGESTED MANUAL TESTS
+────────────────────────────────────────────────────────────────────
+  ▲ Run a full test-mode purchase end to end against the provider sandbox
+  ▲ Retry the same payment request twice — expect exactly one charge
+  ▲ Force a provider failure (bad key / sandbox decline) — expect a clean error path
+  ▲ Run the app with the credential removed from code to prove env-based loading works
+
+Next: --ack to mark all verified · --strict to gate · export --format markdown
+Note: rules catch patterns, not logic. You are still the reviewer."
+`;
+
+exports[`golden snapshots (§15.3) — no-verify-webhook / verified-webhook pair > no-verify-webhook: fires at full severity — HEAD has no guard anywhere > no-verify-webhook.json 1`] = `
+"{
+  "toolVersion": "0.0.0-test",
+  "createdAt": "1970-01-01T00:00:00.000Z",
+  "repo": {
+    "root": "/repo",
+    "name": "repo"
+  },
+  "range": {
+    "desc": "staged"
+  },
+  "mode": {
+    "llm": false,
+    "offline": true
+  },
+  "stats": {
+    "filesChanged": 1,
+    "linesAdded": 1,
+    "linesRemoved": 0,
+    "durationMs": 0,
+    "ignored": {
+      "count": 0,
+      "byReason": {},
+      "examples": []
+    }
+  },
+  "clusters": [
+    {
+      "id": "c1",
+      "label": "routes/webhooks",
+      "files": [
+        {
+          "path": "src/routes/webhooks.ts",
+          "hunks": [
+            {
+              "filePath": "src/routes/webhooks.ts",
+              "oldStart": 1,
+              "oldLines": 3,
+              "newStart": 1,
+              "newLines": 4,
+              "lines": [
+                {
+                  "type": "context",
+                  "content": "import { Router } from \\"express\\";",
+                  "oldLine": 1,
+                  "newLine": 1
+                },
+                {
+                  "type": "context",
+                  "content": "const router = Router();",
+                  "oldLine": 2,
+                  "newLine": 2
+                },
+                {
+                  "type": "add",
+                  "content": "router.post(\\"/webhooks/paystack\\", handler);",
+                  "newLine": 3
+                },
+                {
+                  "type": "context",
+                  "content": "export default router;",
+                  "oldLine": 3,
+                  "newLine": 4
+                }
+              ],
+              "hash": "f7134f050edca2d25c2174d43c8d0e6fe97ce9f9"
+            }
+          ],
+          "added": 1,
+          "removed": 0
+        }
+      ],
+      "hunks": [
+        {
+          "filePath": "src/routes/webhooks.ts",
+          "oldStart": 1,
+          "oldLines": 3,
+          "newStart": 1,
+          "newLines": 4,
+          "lines": [
+            {
+              "type": "context",
+              "content": "import { Router } from \\"express\\";",
+              "oldLine": 1,
+              "newLine": 1
+            },
+            {
+              "type": "context",
+              "content": "const router = Router();",
+              "oldLine": 2,
+              "newLine": 2
+            },
+            {
+              "type": "add",
+              "content": "router.post(\\"/webhooks/paystack\\", handler);",
+              "newLine": 3
+            },
+            {
+              "type": "context",
+              "content": "export default router;",
+              "oldLine": 3,
+              "newLine": 4
+            }
+          ],
+          "hash": "f7134f050edca2d25c2174d43c8d0e6fe97ce9f9"
+        }
+      ],
+      "symbols": [],
+      "added": 1,
+      "removed": 0,
+      "severity": "high"
+    }
+  ],
+  "findings": [
+    {
+      "ruleId": "payments/webhook-endpoint",
+      "baseSeverity": "high",
+      "severity": "high",
+      "file": "src/routes/webhooks.ts",
+      "line": 3,
+      "evidence": "router.post(\\"/webhooks/paystack\\", handler);",
+      "message": "Payment/webhook surface changed",
+      "checklist": [
+        "Verify the provider signature/HMAC is checked BEFORE any business logic runs",
+        "Confirm verification uses the raw request body (not the re-serialized JSON)",
+        "Confirm the handler is idempotent: replay the same event twice, expect one fulfillment",
+        "Confirm amounts/references are re-fetched or recomputed server-side, never trusted from the payload"
+      ],
+      "manualTests": [
+        "Send a forged webhook (no/invalid signature) — expect 4xx and zero side effects",
+        "Replay the provider's test webhook twice — expect exactly one fulfillment",
+        "Send a payload with a tampered amount — expect rejection or recomputation"
+      ],
+      "hunkHash": "f7134f050edca2d25c2174d43c8d0e6fe97ce9f9"
+    }
+  ],
+  "checklist": [
+    {
+      "severity": "high",
+      "text": "Verify the provider signature/HMAC is checked BEFORE any business logic runs",
+      "file": "src/routes/webhooks.ts",
+      "line": 3,
+      "ruleId": "payments/webhook-endpoint",
+      "clusterId": "c1",
+      "clusterLabel": "routes/webhooks",
+      "acknowledged": false
+    },
+    {
+      "severity": "high",
+      "text": "Confirm verification uses the raw request body (not the re-serialized JSON)",
+      "file": "src/routes/webhooks.ts",
+      "line": 3,
+      "ruleId": "payments/webhook-endpoint",
+      "clusterId": "c1",
+      "clusterLabel": "routes/webhooks",
+      "acknowledged": false
+    },
+    {
+      "severity": "high",
+      "text": "Confirm the handler is idempotent: replay the same event twice, expect one fulfillment",
+      "file": "src/routes/webhooks.ts",
+      "line": 3,
+      "ruleId": "payments/webhook-endpoint",
+      "clusterId": "c1",
+      "clusterLabel": "routes/webhooks",
+      "acknowledged": false
+    },
+    {
+      "severity": "high",
+      "text": "Confirm amounts/references are re-fetched or recomputed server-side, never trusted from the payload",
+      "file": "src/routes/webhooks.ts",
+      "line": 3,
+      "ruleId": "payments/webhook-endpoint",
+      "clusterId": "c1",
+      "clusterLabel": "routes/webhooks",
+      "acknowledged": false
+    },
+    {
+      "severity": "low",
+      "text": "Read the full diff of every ▲ cluster top to bottom — rules catch patterns, not logic",
+      "clusterId": "general",
+      "clusterLabel": "general",
+      "acknowledged": false
+    }
+  ],
+  "manualTests": [
+    {
+      "severity": "high",
+      "text": "Send a forged webhook (no/invalid signature) — expect 4xx and zero side effects",
+      "clusterId": "c1",
+      "clusterLabel": "routes/webhooks"
+    },
+    {
+      "severity": "high",
+      "text": "Replay the provider's test webhook twice — expect exactly one fulfillment",
+      "clusterId": "c1",
+      "clusterLabel": "routes/webhooks"
+    },
+    {
+      "severity": "high",
+      "text": "Send a payload with a tampered amount — expect rejection or recomputation",
+      "clusterId": "c1",
+      "clusterLabel": "routes/webhooks"
+    }
+  ],
+  "manualTestsCapped": 0,
+  "previouslyReviewed": {
+    "hunkCount": 0,
+    "findingCount": 0,
+    "findings": []
+  },
+  "infoFindings": [],
+  "footer": {
+    "astAnalyzed": 1,
+    "astSkipped": 0,
+    "historyAvailable": false,
+    "notices": []
+  },
+  "summary": {
+    "range": "staged",
+    "files": 1,
+    "added": 1,
+    "removed": 0,
+    "clusters": 1,
+    "findings": {
+      "high": 1,
+      "medium": 0,
+      "low": 0,
+      "acknowledged": 0
+    },
+    "failOn": null,
+    "exitCode": null,
+    "durationMs": 0
+  }
+}"
+`;
+
+exports[`golden snapshots (§15.3) — no-verify-webhook / verified-webhook pair > no-verify-webhook: fires at full severity — HEAD has no guard anywhere > no-verify-webhook.markdown 1`] = `
+"## CrossCheck review — staged (1 file, +1 / −0)
+
+_Generated 1970-01-01 00:00 UTC · CrossCheck v0.0.0-test · heuristic (offline) mode_
+
+### Risk map
+
+| Severity | Cluster | Files | Lines |
+|---|---|---|---|
+| ▲ HIGH | routes/webhooks | 1 | +1 / −0 |
+
+### Review checklist
+
+- [ ] **(HIGH)** Verify the provider signature/HMAC is checked BEFORE any business logic runs — \`src/routes/webhooks.ts:3\`
+- [ ] **(HIGH)** Confirm verification uses the raw request body (not the re-serialized JSON) — \`src/routes/webhooks.ts:3\`
+- [ ] **(HIGH)** Confirm the handler is idempotent: replay the same event twice, expect one fulfillment — \`src/routes/webhooks.ts:3\`
+- [ ] **(HIGH)** Confirm amounts/references are re-fetched or recomputed server-side, never trusted from the payload — \`src/routes/webhooks.ts:3\`
+- [ ] **(GENERAL)** Read the full diff of every ▲ cluster top to bottom — rules catch patterns, not logic
+
+### Manual tests performed
+
+- [ ] Send a forged webhook (no/invalid signature) — expect 4xx and zero side effects
+- [ ] Replay the provider's test webhook twice — expect exactly one fulfillment
+- [ ] Send a payload with a tampered amount — expect rejection or recomputation
+
+> Heuristics catch patterns, not logic. This report records that a human
+> reviewed the change; it is not a guarantee of correctness."
+`;
+
+exports[`golden snapshots (§15.3) — no-verify-webhook / verified-webhook pair > no-verify-webhook: fires at full severity — HEAD has no guard anywhere > no-verify-webhook.terminal 1`] = `
+"CrossCheck v0.0.0-test — pre-push self-review
+repo:    repo
+range:   staged (1 file, +1 / −0)
+mode:    heuristic (offline) · 0.0s
+
+RISK MAP — 1 high-risk cluster in 1 file
+────────────────────────────────────────────────────────────────────
+ ▲  routes/webhooks                  1 file   +1 / −0       HIGH
+────────────────────────────────────────────────────────────────────
+
+REVIEW CHECKLIST — 5 items (4 high-risks first)
+────────────────────────────────────────────────────────────────────
+▲ routes/webhooks
+  ☐ 1. Verify the provider signature/HMAC is checked BEFORE any business logic runs (src/routes/webhooks.ts:3)
+  ☐ 2. Confirm verification uses the raw request body (not the re-serialized JSON) (src/routes/webhooks.ts:3)
+  ☐ 3. Confirm the handler is idempotent: replay the same event twice, expect one fulfillment (src/routes/webhooks.ts:3)
+  ☐ 4. Confirm amounts/references are re-fetched or recomputed server-side, never trusted from the payload (src/routes/webhooks.ts:3)
+■ general
+  ☐ 5. Read the full diff of every ▲ cluster top to bottom — rules catch patterns, not logic (general)
+
+SUGGESTED MANUAL TESTS
+────────────────────────────────────────────────────────────────────
+  ▲ Send a forged webhook (no/invalid signature) — expect 4xx and zero side effects
+  ▲ Replay the provider's test webhook twice — expect exactly one fulfillment
+  ▲ Send a payload with a tampered amount — expect rejection or recomputation
+
+Next: --ack to mark all verified · --strict to gate · export --format markdown
+Note: rules catch patterns, not logic. You are still the reviewer."
+`;
+
+exports[`golden snapshots (§15.3) — no-verify-webhook / verified-webhook pair > verified-webhook: downgraded to an info note — HEAD already has the signature guard > verified-webhook.json 1`] = `
+"{
+  "toolVersion": "0.0.0-test",
+  "createdAt": "1970-01-01T00:00:00.000Z",
+  "repo": {
+    "root": "/repo",
+    "name": "repo"
+  },
+  "range": {
+    "desc": "staged"
+  },
+  "mode": {
+    "llm": false,
+    "offline": true
+  },
+  "stats": {
+    "filesChanged": 1,
+    "linesAdded": 1,
+    "linesRemoved": 0,
+    "durationMs": 0,
+    "ignored": {
+      "count": 0,
+      "byReason": {},
+      "examples": []
+    }
+  },
+  "clusters": [
+    {
+      "id": "c1",
+      "label": "routes/verify",
+      "files": [
+        {
+          "path": "src/routes/webhooks.ts",
+          "hunks": [
+            {
+              "filePath": "src/routes/webhooks.ts",
+              "oldStart": 5,
+              "oldLines": 4,
+              "newStart": 5,
+              "newLines": 5,
+              "lines": [
+                {
+                  "type": "context",
+                  "content": "  const digest = createHmac(\\"sha256\\", secret).update(rawBody).digest(\\"hex\\");",
+                  "oldLine": 5,
+                  "newLine": 5
+                },
+                {
+                  "type": "context",
+                  "content": "  return digest === signature;",
+                  "oldLine": 6,
+                  "newLine": 6
+                },
+                {
+                  "type": "context",
+                  "content": "}",
+                  "oldLine": 7,
+                  "newLine": 7
+                },
+                {
+                  "type": "add",
+                  "content": "router.post(\\"/webhooks/paystack\\", handler);",
+                  "newLine": 8
+                },
+                {
+                  "type": "context",
+                  "content": "export default router;",
+                  "oldLine": 8,
+                  "newLine": 9
+                }
+              ],
+              "hash": "f7134f050edca2d25c2174d43c8d0e6fe97ce9f9",
+              "section": "function verifySignature(rawBody: string, signature: string, secret: string): bo"
+            }
+          ],
+          "added": 1,
+          "removed": 0
+        }
+      ],
+      "hunks": [
+        {
+          "filePath": "src/routes/webhooks.ts",
+          "oldStart": 5,
+          "oldLines": 4,
+          "newStart": 5,
+          "newLines": 5,
+          "lines": [
+            {
+              "type": "context",
+              "content": "  const digest = createHmac(\\"sha256\\", secret).update(rawBody).digest(\\"hex\\");",
+              "oldLine": 5,
+              "newLine": 5
+            },
+            {
+              "type": "context",
+              "content": "  return digest === signature;",
+              "oldLine": 6,
+              "newLine": 6
+            },
+            {
+              "type": "context",
+              "content": "}",
+              "oldLine": 7,
+              "newLine": 7
+            },
+            {
+              "type": "add",
+              "content": "router.post(\\"/webhooks/paystack\\", handler);",
+              "newLine": 8
+            },
+            {
+              "type": "context",
+              "content": "export default router;",
+              "oldLine": 8,
+              "newLine": 9
+            }
+          ],
+          "hash": "f7134f050edca2d25c2174d43c8d0e6fe97ce9f9",
+          "section": "function verifySignature(rawBody: string, signature: string, secret: string): bo"
+        }
+      ],
+      "symbols": [
+        "verifySignature"
+      ],
+      "added": 1,
+      "removed": 0,
+      "severity": "low"
+    }
+  ],
+  "findings": [],
+  "checklist": [
+    {
+      "severity": "low",
+      "text": "Read the full diff of every ▲ cluster top to bottom — rules catch patterns, not logic",
+      "clusterId": "general",
+      "clusterLabel": "general",
+      "acknowledged": false
+    }
+  ],
+  "manualTests": [],
+  "manualTestsCapped": 0,
+  "previouslyReviewed": {
+    "hunkCount": 0,
+    "findingCount": 0,
+    "findings": []
+  },
+  "infoFindings": [
+    {
+      "ruleId": "payments/webhook-endpoint",
+      "baseSeverity": "high",
+      "severity": "high",
+      "file": "src/routes/webhooks.ts",
+      "line": 8,
+      "evidence": "router.post(\\"/webhooks/paystack\\", handler);",
+      "message": "Payment/webhook surface changed",
+      "checklist": [
+        "Verify the provider signature/HMAC is checked BEFORE any business logic runs",
+        "Confirm verification uses the raw request body (not the re-serialized JSON)",
+        "Confirm the handler is idempotent: replay the same event twice, expect one fulfillment",
+        "Confirm amounts/references are re-fetched or recomputed server-side, never trusted from the payload"
+      ],
+      "manualTests": [
+        "Send a forged webhook (no/invalid signature) — expect 4xx and zero side effects",
+        "Replay the provider's test webhook twice — expect exactly one fulfillment",
+        "Send a payload with a tampered amount — expect rejection or recomputation"
+      ],
+      "hunkHash": "f7134f050edca2d25c2174d43c8d0e6fe97ce9f9",
+      "info": true,
+      "infoReason": "guard found at line 1 — downgraded to info"
+    }
+  ],
+  "footer": {
+    "astAnalyzed": 1,
+    "astSkipped": 0,
+    "historyAvailable": false,
+    "notices": []
+  },
+  "summary": {
+    "range": "staged",
+    "files": 1,
+    "added": 1,
+    "removed": 0,
+    "clusters": 1,
+    "findings": {
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "acknowledged": 0
+    },
+    "failOn": null,
+    "exitCode": null,
+    "durationMs": 0
+  }
+}"
+`;
+
+exports[`golden snapshots (§15.3) — no-verify-webhook / verified-webhook pair > verified-webhook: downgraded to an info note — HEAD already has the signature guard > verified-webhook.markdown 1`] = `
+"## CrossCheck review — staged (1 file, +1 / −0)
+
+_Generated 1970-01-01 00:00 UTC · CrossCheck v0.0.0-test · heuristic (offline) mode_
+
+### Risk map
+
+_all 1 cluster are low-risk by current rules — still read the diff_
+
+### Review checklist
+
+- [ ] **(GENERAL)** Read the full diff of every ▲ cluster top to bottom — rules catch patterns, not logic
+
+### Manual tests performed
+
+_No manual tests suggested by the rules that fired._
+
+> Heuristics catch patterns, not logic. This report records that a human
+> reviewed the change; it is not a guarantee of correctness."
+`;
+
+exports[`golden snapshots (§15.3) — no-verify-webhook / verified-webhook pair > verified-webhook: downgraded to an info note — HEAD already has the signature guard > verified-webhook.terminal 1`] = `
+"CrossCheck v0.0.0-test — pre-push self-review
+repo:    repo
+range:   staged (1 file, +1 / −0)
+mode:    heuristic (offline) · 0.0s
+
+RISK MAP
+────────────────────────────────────────────────────────────────────
+ all 1 cluster are low-risk by current rules — still read the diff
+────────────────────────────────────────────────────────────────────
+
+REVIEW CHECKLIST — 1 item (0 high-risks first)
+────────────────────────────────────────────────────────────────────
+■ general
+  ☐ 1. Read the full diff of every ▲ cluster top to bottom — rules catch patterns, not logic (general)
+
+SUGGESTED MANUAL TESTS
+────────────────────────────────────────────────────────────────────
+  (none suggested by the rules that fired)
+
+Next: --ack to mark all verified · --strict to gate · export --format markdown
+Note: rules catch patterns, not logic. You are still the reviewer."
+`;

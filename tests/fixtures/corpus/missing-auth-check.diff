@@ -1,0 +1,11 @@
+diff --git a/src/auth/admin-routes.ts b/src/auth/admin-routes.ts
+index 5555555..6666666 100644
+--- a/src/auth/admin-routes.ts
++++ b/src/auth/admin-routes.ts
+@@ -1,5 +1,5 @@
+ import { Router } from "express";
+ import { requireAuth } from "./middleware";
+ const router = Router();
+-router.get("/admin/export", requireAuth, exportHandler);
++router.get("/admin/export", exportHandler);
+ export default router;

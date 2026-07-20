@@ -1,0 +1,12 @@
+diff --git a/src/db/users-repo.ts b/src/db/users-repo.ts
+index 3333333..4444444 100644
+--- a/src/db/users-repo.ts
++++ b/src/db/users-repo.ts
+@@ -1,4 +1,7 @@
+ import { db } from "./client";
+ export async function listUsers() {
+   return db.query("SELECT * FROM users");
+ }
++export async function findUserById(id: string) {
++  return db.query(`SELECT * FROM users WHERE id = ${id}`);
++}

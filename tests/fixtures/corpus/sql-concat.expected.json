@@ -1,0 +1,6 @@
+{
+  "description": "Template-literal SQL interpolating a request param directly into query() (§15.2 row 3). db/raw-sql-injection is opt-in (enabledByDefault:false, §7.2) — the fixture run enables it explicitly via rules.enable.",
+  "expectFindings": ["db/raw-sql-injection"],
+  "expectNoFindings": ["db/destructive-migration", "db/migration-added"],
+  "enableRules": ["db/raw-sql-injection"]
+}

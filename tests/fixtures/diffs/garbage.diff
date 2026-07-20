@@ -1,0 +1,18 @@
+this is not a diff at all
+just some junk text that should be skipped
+diff --git a/src/a.ts b/src/a.ts
+@@ not a hunk header
+@@ -1,2 +1,2
+--- almost a header
++orphan added line
+-orphan removed line
+diff --git a/src/b.ts b/src/b.ts
+index 3b5e8a1..9f2c4d7 100644
+--- a/src/b.ts
++++ b/src/b.ts
+@@ -1,2 +1,2 @@
+-old line
++new line
+ context line
+@@ -bogus +nope @@
+trailing junk that is not a diff line

@@ -1,0 +1,17 @@
+diff --git a/src/components/user-label.ts b/src/components/user-label.ts
+index cccc111..dddd222 100644
+--- a/src/components/user-label.ts
++++ b/src/components/user-label.ts
+@@ -1,5 +1,9 @@
+ export function renderLabel(user: { name: string; title: string }): string {
+-  const n = user.name.trim();
+-  const t = user.title.trim();
+-  return `<span class="text-sm text-gray-500">${n} - ${t}</span>`;
++  const name = formatPart(user.name);
++  const title = formatPart(user.title);
++  return `<span class="text-sm text-gray-600 font-medium">${name} — ${title}</span>`;
++}
++
++function formatPart(value: string): string {
++  return value.trim();
+ }

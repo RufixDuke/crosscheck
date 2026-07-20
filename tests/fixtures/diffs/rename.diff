@@ -1,0 +1,17 @@
+diff --git a/src/old-name.ts b/src/new-name.ts
+similarity index 87%
+rename from src/old-name.ts
+rename to src/new-name.ts
+index 3b5e8a1..9f2c4d7 100644
+--- a/src/old-name.ts
++++ b/src/new-name.ts
+@@ -1,4 +1,4 @@
+ line one
+-line two
++line two changed
+ line three
+ line four
+diff --git a/docs/guide.md b/docs/handbook.md
+similarity index 100%
+rename from docs/guide.md
+rename to docs/handbook.md

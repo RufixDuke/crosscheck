@@ -1,0 +1,6 @@
+{
+  "description": "New /admin/export route loses its requireAuth guard during an agent refactor, in a file under **/auth/** (§15.2 row 4). auth/middleware-touched fires on the path glob alone; auth/permission-check-removed fires on the removed 'requireAuth' token.",
+  "expectFindings": ["auth/middleware-touched", "auth/permission-check-removed"],
+  "expectNoFindings": [],
+  "enableRules": []
+}
