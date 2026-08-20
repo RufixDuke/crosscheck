@@ -2,7 +2,7 @@
 
 Local-first, pre-push AI self-review CLI — review what your AI coding agent wrote before you push.
 
-Docs: [crosscheck-iota.vercel.app](https://crosscheck-iota.vercel.app/)
+Docs: [crosscheck.rufixduke.ng](https://crosscheck.rufixduke.ng/)
 
 CrossCheck runs on your staged diff before you push. It clusters what changed, scores what's risky —
 auth, payments, migrations, secrets — and hands you a prioritized checklist and concrete manual tests.
